@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="Zero-WAM learns zero-shot robotic task generalization from in-context human video instructions.">
-    <meta name="keywords" content="Zero-WAM, Robotics, World Action Model, In-Context Learning, RoboTwin">
+    <meta name="description" content="DemoShift-Bench evaluates in-context learning (ICL) robot policies under controlled demonstration shifts along five axes.">
+    <meta name="keywords" content="DemoShift, Robotics, World Action Model, In-Context Learning">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Zero-WAM: In-Context World-Action Modeling from Human Videos for Open-Ended Task Generalization</title>
+    <title>DemoShift-Bench: Are In-Context Learning Robot Policies Ready Beyond Curated Demonstrations?</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./static/css/bulma.min.css">
@@ -19,15 +19,15 @@
 <body>
     <header class="site-nav">
         <div class="nav-inner">
-            <a class="nav-brand" href="#top">Zero&#8209;WAM</a>
+            <a class="nav-brand" href="#top">DemoShift</a>
         </div>
     </header>
 
     <aside class="page-toc" aria-label="Table of contents">
         <div class="toc-title">Contents</div>
-        <a class="toc-link is-active" href="#overview">Robotic Task Generalization.</a>
+        <a class="toc-link is-active" href="#overview">Abstract.</a>
         <a class="toc-link" href="#human-video-prompt">In-context Human<br>Video Prompt.</a>
-        <a class="toc-link" href="#zero-wam">Zero-WAM.</a>
+        <a class="toc-link" href="#demoshift">DemoShift.</a>
         <a class="toc-link" href="#data-pipeline">Human Video<br>Pipeline.</a>
         <a class="toc-link" href="#dataset">Dataset.</a>
         <a class="toc-link" href="#real-world-demo">Zero-shot<br>Testing.</a>
@@ -40,43 +40,9 @@
                 <div class="container is-max-widescreen">
                     <div class="hero-copy">
                         <h1 class="title is-2 publication-title">
-                            <span class="title-line project-name-line"><strong class="project-name">Zero&#8209;WAM</strong></span>
-                            <span class="title-line title-subline">In&#8209;Context World&#8209;Action Modeling from Human Videos for Open&#8209;Ended Task Generalization</span>
+                            <span class="title-line project-name-line"><strong class="project-name">DemoShift&#8209;Bench</strong></span>
+                            <span class="title-line title-subline">Are In&#8209;Context Learning Robot Policies Ready Beyond Curated Demonstrations?</span>
                         </h1>
-
-                        <div class="publication-authors" aria-label="Authors and affiliations">
-                            <div class="author-list">
-                                <span class="author-entry"><a href="https://jiaming-zhou.github.io/" target="_blank" rel="noopener">Jiaming Zhou</a></span>
-                                <span class="author-entry"><a href="https://zqh0253.github.io/" target="_blank" rel="noopener">Qihang Zhang</a><sup>*</sup></span>
-                                <span class="author-entry"><a href="https://gangweix.github.io/" target="_blank" rel="noopener">Gangwei Xu</a></span>
-                                <span class="author-entry"><a href="https://alfayoung.github.io/" target="_blank" rel="noopener">Cunxin Fan</a></span>
-                                <span class="author-entry">Yujie Zhao</span>
-                                <span class="author-entry">Ruilin Wang</span>
-                                <span class="author-entry"><a href="https://ymluo1214.github.io/" target="_blank" rel="noopener">Yiming Luo</a></span>
-                                <span class="author-entry"><a href="https://yangs03.github.io/" target="_blank" rel="noopener">Shuai Yang</a></span>
-                                <span class="author-entry"><a href="https://scholar.google.com/citations?user=Hnh87z4AAAAJ&amp;hl=en" target="_blank" rel="noopener">Xing Zhu</a></span>
-                                <span class="author-entry"><a href="https://shenyujun.github.io/" target="_blank" rel="noopener">Yujun Shen</a></span>
-                                <span class="author-entry"><a href="https://junweiliang.me" target="_blank" rel="noopener">Junwei Liang</a><sup>&dagger;</sup></span>
-                                <span class="author-entry"><a href="https://justimyhxu.github.io/" target="_blank" rel="noopener">Yinghao Xu</a><sup>&dagger;</sup></span>
-                            </div>
-                            <div class="affiliation-list" aria-label="Affiliations">
-                                <span>Robbyant</span>
-                                <span>HKUST (GZ)</span>
-                                <span>HKUST</span>
-                            </div>
-                            <div class="author-notes">
-                                <span><sup>*</sup>Project Lead</span>
-                                <span><sup>&dagger;</sup>Corresponding Authors</span>
-                            </div>
-                        </div>
-
-                        <div class="publication-links" aria-label="Project links">
-                            <a class="project-link" href="https://arxiv.org/abs/2608.26103" target="_blank" rel="noopener">[arXiv]</a>
-                            <a class="project-link" href="https://github.com/robbyant-research/Zero-WAM" target="_blank" rel="noopener">[GitHub]</a>
-                            <a class="project-link" href="https://huggingface.co/datasets/Robbyant-Research/HumanGen" target="_blank" rel="noopener">[Data]</a>
-                            <a class="project-link" href="https://huggingface.co/Robbyant-Research/zero-wam-pretrain" target="_blank" rel="noopener">[Pre-train]</a>
-                            <a class="project-link" href="https://huggingface.co/Robbyant-Research/zero-wam-posttrain-robotwin" target="_blank" rel="noopener">[Post-train]</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -84,10 +50,15 @@
 
         <section class="section motivation-section" id="overview">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">Robotic Task Generalization.</h2>
+                <h2 class="section-heading">Abstract.</h2>
                 <div class="motivation-panel">
                     <p>
-                        Robotic policies deployed in the physical world must handle a broad range of manipulation tasks, including tasks outside their training distribution. This task-level distribution shift remains a central challenge in general-purpose manipulation. A straightforward way is to keep scaling manipulation data so that it covers as many tasks as possible. Yet real-world manipulation tasks are extraordinarily diverse, and language instructions alone often leave crucial procedural details ambiguous. This motivates a complementary visual interface that can ground an unseen task in a concrete demonstration.
+                        In-context learning (ICL) enables robot policies to perform unseen tasks from a human demonstration video without task-specific training. However, existing evaluations rely on curated videos closely matched to the robot's workspace. We ask whether these policies can follow casual, everyday recordings and adapt to changed execution conditions.
+                        To this end, we introduce DemoShift-Bench, which pairs real human recordings with manipulation tasks and applies controlled shifts along five axes: camera viewpoint (top-view, third-person, and handheld), execution speed (2&times; or 0.5&times;), distractors in the demonstration or scene, specification (repetition, collision avoidance, or arm selection), and cross-modal conflicts between video and text.
+                        Evaluating both ICL policies and frontier agentic vision-language model (VLM) policies on DemoShift-Bench reveals an average success drop of 12&ndash;14 percentage points under shifts and exposes three key limitations.
+                        First, earlier video-conditioned vision-language-action (VLA) policies rely mainly on text instructions rather than on human demonstration videos.
+                        Second, current ICL policies that do use the video still fail to reproduce demonstrated actions precisely, resolve object and instance ambiguity, or follow added specifications and cross-modal overrides.
+                        Third, frontier agentic VLM policies handle visual shifts, arm selection, and cross-modal conflicts far more reliably, yet they still fail to repeat tasks, avoid collisions, or adjust execution speed, and they incur high token costs.
                     </p>
                 </div>
             </div>
@@ -95,24 +66,11 @@
 
         <section class="section promo-section" aria-label="Promotional video">
             <div class="container is-max-widescreen">
-                <div class="video-shell promo-video-shell">
-                    <video class="promo-video" src="./static/videos/promo/zero-wam-promo-condensed-full-bgm-v6-720p.mp4" autoplay playsinline preload="auto" data-promo-video aria-label="Zero-WAM promotional video"></video>
-                    <div class="video-controls promo-video-controls">
-                        <div class="promo-volume-control">
-                            <button class="promo-audio-toggle is-unmuted" type="button" aria-label="Mute promotional video" data-promo-audio-toggle>
-                                <i class="fas fa-volume-up" aria-hidden="true"></i>
-                            </button>
-                            <div class="promo-volume-popover">
-                                <div class="promo-volume-slider" role="slider" tabindex="0" aria-label="Promotional video volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" data-promo-volume>
-                                    <div class="promo-volume-track"><div class="promo-volume-fill"></div></div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="video-play-toggle" type="button" aria-label="Play video"></button>
-                        <span class="video-time video-time-current">0:00</span>
-                        <div class="video-progress" role="slider" tabindex="0" aria-label="Zero-WAM promotional video progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="video-progress-fill"></div></div>
-                        <span class="video-time video-time-duration">0:00</span>
-                    </div>
+                <!-- TODO: replace with the DemoShift promo video, e.g.
+                <video class="promo-video" src="./static/videos/promo/demoshift-promo.mp4" autoplay playsinline preload="auto" data-promo-video aria-label="DemoShift promotional video"></video>
+                -->
+                <div class="video-shell promo-video-shell promo-placeholder" role="img" aria-label="Promotional video placeholder">
+                    <span>Video coming soon</span>
                 </div>
             </div>
         </section>
@@ -168,12 +126,12 @@
             </div>
         </section>
 
-        <section class="section motivation-section" id="zero-wam">
+        <section class="section motivation-section" id="demoshift">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">Zero-WAM: In-context World-Action Pre-training.</h2>
+                <h2 class="section-heading">DemoShift: In-context World-Action Pre-training.</h2>
                 <div class="motivation-panel">
                     <p>
-                        To make this human-video ICL interface trainable at scale, we introduce Zero-WAM, an in-context world-action pre-training framework for zero-shot robotic task generalization.
+                        To make this human-video ICL interface trainable at scale, we introduce DemoShift, an in-context world-action pre-training framework for zero-shot robotic task generalization.
                     </p>
                     <ul class="contribution-list">
                         <li><strong>Unified task interface.</strong> We formulate zero-shot robotic task generalization as in-context world action modeling, where a single causal video-action policy supports both language and human videos as task instructions.</li>
@@ -186,7 +144,7 @@
                     <img
                         class="zero-wam-framework-base"
                         src="./static/images/paper/framework-v1.0.webp"
-                        alt="Zero-WAM framework: task-diverse robot data and paired human-robot data train a unified video and action model conditioned on language or human video, enabling zero-shot task generalization."
+                        alt="DemoShift framework: task-diverse robot data and paired human-robot data train a unified video and action model conditioned on language or human video, enabling zero-shot task generalization."
                         width="2000"
                         height="782"
                         loading="lazy"
@@ -232,7 +190,7 @@
 
         <section class="section pipeline-section" id="data-pipeline">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">In-context Human Video Generation Pipeline</h2>
+                <h2 class="section-heading">In-context Human Video Generation Pipeline.</h2>
                 <p class="section-description">
                     Scaling the human-video ICL interface introduced above requires task-rich, semantically aligned human-robot pairs, which are expensive to collect manually. Robotic pre-training corpora already contain diverse trajectories with executable actions. We therefore sample tasks from these corpora, convert the corresponding robot videos into matched human demonstrations, and retain only physically plausible, task-consistent ICL pairs.
                 </p>
@@ -371,9 +329,9 @@
 
         <section class="section dataset-section" id="dataset">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">Task-diverse Data</h2>
+                <h2 class="section-heading">Task-diverse Data.</h2>
                 <p class="section-description">
-                    Zero-WAM pre-training uses two complementary data components. Task-diverse VA is constructed from five public datasets by repartitioning robot trajectories into more than 6,000 manipulation tasks and sampling them at the task level. The pipeline above constructs HumanGen, a collection of aligned human-robot ICL pairs spanning public datasets, in-house platforms, simulation, and real-world collection.
+                    DemoShift pre-training uses two complementary data components. Task-diverse VA is constructed from five public datasets by repartitioning robot trajectories into more than 6,000 manipulation tasks and sampling them at the task level. The pipeline above constructs HumanGen, a collection of aligned human-robot ICL pairs spanning public datasets, in-house platforms, simulation, and real-world collection.
                 </p>
                 <div class="data-composition-viewport">
                     <div class="data-composition" data-data-composition>
@@ -497,7 +455,7 @@
             <div class="container is-max-widescreen">
                 <h2 class="section-heading">Zero-shot Testing.</h2>
                 <p class="section-description">
-                    We evaluate Zero-WAM on long-horizon sequential manipulation and precision-demanding insertion. Both task families are difficult to specify fully in language: the former requires an exact execution order, while the latter depends on precise target configurations.
+                    We evaluate DemoShift on long-horizon sequential manipulation and precision-demanding insertion. Both task families are difficult to specify fully in language: the former requires an exact execution order, while the latter depends on precise target configurations.
                 </p>
 
                 <div class="demo-block" data-demo="sequential">
@@ -544,10 +502,10 @@
 
                 <div class="demo-block" data-demo="insertion">
                     <div class="demo-header">
-                        <h3 class="demo-title">Precision-demand Inserting</h3>
+                        <h3 class="demo-title">Precision-demanding Insertion</h3>
                     </div>
                     <div class="insertion-gallery">
-                        <div class="task-controls" aria-label="Precision-demand inserting task selector">
+                        <div class="task-controls" aria-label="Precision-demanding insertion task selector">
                             <div class="task-strip" role="tablist"></div>
                         </div>
                         <div class="insertion-main">
@@ -591,12 +549,12 @@
 
         <section class="section robotwin-section" id="robotwin">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">RoboTwin 2.0 Evaluation</h2>
+                <h2 class="section-heading">RoboTwin 2.0 Evaluation.</h2>
 
                 <div class="robotwin-subsection">
                     <h3 class="robotwin-subheading">Seven Unseen Tasks.</h3>
                     <p class="section-description">
-                        We evaluate Zero-WAM's cross-task generalization in the RoboTwin 2.0 simulation benchmark. Seven tasks are held out at the task level; Zero-WAM is trained on the remaining 43 tasks and evaluated zero-shot on the held-out set.
+                        We evaluate DemoShift's cross-task generalization on the RoboTwin 2.0 simulation benchmark. Seven tasks are held out at the task level; DemoShift is trained on the remaining 43 tasks and evaluated zero-shot on the held-out set.
                     </p>
                     <div class="robotwin-groups">
                         <section class="robotwin-task-group robotwin-task-group--primary" aria-labelledby="robotwin-label-unseen">
@@ -660,12 +618,12 @@
                 <div class="robotwin-subsection robotwin-results" id="results">
                     <h3 class="robotwin-subheading">Task-level Zero-shot Results.</h3>
                     <p class="section-description">
-                        Across this held-out suite, Zero-WAM reaches 46.95% average success, surpassing the video-action baseline LingBot-VA by 29.50 percentage points.
+                        Across this held-out suite, DemoShift reaches 46.95% average success, surpassing the video-action baseline LingBot-VA by 29.50 percentage points.
                     </p>
                     <div class="result-legend" aria-label="Chart legend">
                         <span><i class="legend-swatch legend-wan"></i>WAN</span>
                         <span><i class="legend-swatch legend-lingbot"></i>LingBot-VA</span>
-                        <span><i class="legend-swatch legend-zero"></i>Zero-WAM</span>
+                        <span><i class="legend-swatch legend-zero"></i>DemoShift</span>
                     </div>
                     <div class="results-chart" role="img" aria-label="Success rate comparison on seven unseen RoboTwin tasks">
                         <div class="chart-axis" aria-hidden="true"><span>0</span><span>25</span><span>50</span><span>75</span><span>100%</span></div>
@@ -684,21 +642,17 @@
 
         <section class="section citation-section" id="citation" aria-label="BibTeX citation">
             <div class="container is-max-widescreen">
-                <pre class="citation-bibtex"><code>@misc{zhou2026zerowam,
-  title = {Zero-WAM: In-Context World-Action Modeling from Human Videos for Open-Ended Task Generalization},
-  author = {Zhou, Jiaming and Zhang, Qihang and Xu, Gangwei and Fan, Cunxin and Zhao, Yujie and Wang, Ruilin and Luo, Yiming and Yang, Shuai and Zhu, Xing and Shen, Yujun and Liang, Junwei and Xu, Yinghao},
-  year = {2026},
-  eprint = {2608.26103},
-  archivePrefix = {arXiv},
-  primaryClass = {cs.RO},
-  url = {https://arxiv.org/abs/2608.26103}
+                <pre class="citation-bibtex"><code>@misc{demoshift2026,
+  title = {DemoShift-Bench: Are In-Context Learning Robot Policies Ready Beyond Curated Demonstrations?},
+  author = {TODO},
+  year = {2026}
 }</code></pre>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
-        <div class="container is-max-widescreen">Zero-WAM</div>
+        <div class="container is-max-widescreen">DemoShift</div>
     </footer>
 </body>
 

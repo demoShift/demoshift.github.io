@@ -2743,3 +2743,13 @@ button:focus-visible,
     transition: none;
   }
 }
+
+.promo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1d1d1d;
+  color: #bdbdbd;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
