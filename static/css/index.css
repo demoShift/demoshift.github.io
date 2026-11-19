@@ -2753,3 +2753,399 @@ button:focus-visible,
   font-size: 1.1rem;
   letter-spacing: 0.04em;
 }
+
+/* DemoShift-Bench results chart */
+.bench-section {
+  /* ICL policies in blues, agentic VLM policies in oranges */
+  --bench-m1: #1c5cab;
+  --bench-m2: #5aa2ea;
+  --bench-m3: #b5520a;
+  --bench-m4: #eb9a52;
+  --bench-ghost: rgba(24, 24, 24, 0.13);
+  --bench-ghost-cap: rgba(24, 24, 24, 0.5);
+  --bench-surface: #fefcf8;
+  --bench-plot-height: 300px;
+  --bench-head-height: 0.9rem;
+}
+
+.bench-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem 1.6rem;
+  margin: 1.5rem 0 1.1rem;
+}
+
+.bench-legend {
+  flex: 1 1 0;
+  min-width: 0;
+  justify-content: flex-start;
+  gap: 0.45rem 1.15rem;
+  margin: 0;
+  font-size: 0.86rem;
+}
+
+.bench-legend .legend-swatch {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 2px;
+}
+
+.bench-legend-family {
+  color: var(--muted-ink);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.bench-legend-family ~ .bench-legend-family {
+  margin-left: 0.6rem;
+}
+
+.bench-swatch-m1 { background: var(--bench-m1); }
+.bench-swatch-m2 { background: var(--bench-m2); }
+.bench-swatch-m3 { background: var(--bench-m3); }
+.bench-swatch-m4 { background: var(--bench-m4); }
+
+.bench-legend .bench-swatch-base {
+  margin-left: 0.6rem;
+  background: var(--bench-ghost);
+  border-top: 2px solid var(--bench-ghost-cap);
+  border-radius: 0;
+}
+
+.bench-view-toggle {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--soft-white);
+}
+
+.bench-view-toggle button {
+  padding: 0.3rem 0.95rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted-ink);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.bench-view-toggle button.is-active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.bench-view-toggle button:focus-visible,
+.bench-cell:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.bench-chart-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 1.15rem;
+  background: var(--soft-white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-medium);
+  box-shadow: 0 12px 32px rgba(20, 28, 38, 0.04);
+}
+
+.bench-chart {
+  display: grid;
+  grid-template-columns: 2.9rem minmax(0, 1fr);
+  min-width: 720px;
+  color: var(--ink);
+}
+
+.bench-yaxis {
+  position: relative;
+  height: var(--bench-plot-height);
+  margin-top: var(--bench-head-height);
+  color: rgba(24, 24, 24, 0.5);
+  font-size: 0.66rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.bench-yaxis i {
+  position: absolute;
+  right: 0.5rem;
+  bottom: calc(var(--at) * 1.25%);
+  font-style: normal;
+  line-height: 1;
+  transform: translateY(50%);
+}
+
+.bench-yaxis-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  line-height: 1;
+  text-align: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.bench-plot {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  padding-top: var(--bench-head-height);
+}
+
+/* gridlines at 20 / 40 / 60 / 80, darker zero line */
+.bench-grid {
+  position: absolute;
+  top: var(--bench-head-height);
+  right: 0;
+  left: 0;
+  height: var(--bench-plot-height);
+  border-top: 1px solid rgba(24, 24, 24, 0.09);
+  border-bottom: 1px solid rgba(24, 24, 24, 0.55);
+  background: repeating-linear-gradient(to top, transparent 0 calc(25% - 1px), rgba(24, 24, 24, 0.09) calc(25% - 1px) 25%);
+  pointer-events: none;
+}
+
+.bench-cell {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0 0.3rem;
+  border-radius: 4px;
+  cursor: default;
+}
+
+.bench-cell:hover,
+.bench-cell:focus-visible {
+  background: rgba(24, 24, 24, 0.045);
+}
+
+/* divider between the original demo and the shifts */
+.bench-cell--original {
+  margin-right: 0.5rem;
+}
+
+.bench-cell--original::after {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--bench-head-height));
+  right: -0.25rem;
+  bottom: 0;
+  width: 1px;
+  background: rgba(24, 24, 24, 0.2);
+}
+
+.bench-bars {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 4px;
+  height: var(--bench-plot-height);
+}
+
+.bench-col {
+  position: relative;
+  flex: 0 1 30px;
+}
+
+.bench-m1 { --c: var(--bench-m1); }
+.bench-m2 { --c: var(--bench-m2); }
+.bench-m3 { --c: var(--bench-m3); }
+.bench-m4 { --c: var(--bench-m4); }
+
+/* success rate under the shift */
+.bench-col i {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: calc(var(--v) * 1.25%);
+  background: var(--c);
+  border-radius: 4px 4px 0 0;
+}
+
+/* value label: just above the bar, or above the gray block when that block is short */
+.bench-col b {
+  position: absolute;
+  bottom: calc(var(--l) * 1.25% + 5px);
+  left: 50%;
+  font-size: 0.64rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  line-height: 1;
+  transform: translateX(-50%);
+}
+
+/* drop: gray block from the bar up to the original-demo success rate */
+.bench-col.is-down::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: calc(var(--v) * 1.25% + 2px);
+  left: 0;
+  box-sizing: border-box;
+  height: calc((var(--b) - var(--v)) * 1.25% - 2px);
+  min-height: 2px;
+  background: var(--bench-ghost);
+  border-top: 2px solid var(--bench-ghost-cap);
+}
+
+/* gain: notch across the bar at the original-demo success rate */
+.bench-col.is-up::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: calc(var(--b) * 1.25%);
+  left: 0;
+  height: 2px;
+  background: var(--bench-surface);
+}
+
+.bench-col.is-na em {
+  position: absolute;
+  bottom: 0.4rem;
+  left: 50%;
+  color: rgba(24, 24, 24, 0.5);
+  font-size: 0.62rem;
+  font-style: normal;
+  line-height: 1;
+  transform: translateX(-50%);
+}
+
+.bench-cond {
+  display: block;
+  padding: 0.6rem 0 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.bench-cond small {
+  display: block;
+  margin-top: 0.15rem;
+  color: rgba(24, 24, 24, 0.55);
+  font-size: 0.64rem;
+  font-weight: 400;
+}
+
+.bench-tooltip {
+  position: fixed;
+  z-index: 50;
+  max-width: 24rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--radius-small);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.74rem;
+  line-height: 1.35;
+  pointer-events: none;
+  white-space: pre-line;
+  transform: translate(-50%, calc(-100% - 10px));
+}
+
+/* DemoShift-Bench results table */
+.bench-table-wrap {
+  margin-top: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.bench-table {
+  width: 100%;
+  min-width: 860px;
+  border-collapse: collapse;
+  color: var(--ink);
+  font-family: "Signifier", Georgia, serif;
+  font-size: 0.98rem;
+  font-variant-numeric: lining-nums tabular-nums;
+  text-align: center;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+
+.bench-table th,
+.bench-table td {
+  padding: 0.32rem 0.7rem;
+  border: 0;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.bench-table th[scope="row"],
+.bench-table .bench-axis,
+.bench-table thead tr:last-child th:nth-child(-n+2) {
+  text-align: left;
+}
+
+.bench-table .bench-axis {
+  font-weight: 400;
+  white-space: normal;
+  width: 8.5rem;
+}
+
+.bench-table tbody th[scope="row"] {
+  font-weight: 400;
+}
+
+.bench-table thead th {
+  font-weight: 700;
+}
+
+.bench-group-row th {
+  padding-top: 0.7rem;
+}
+
+.bench-group-row th[scope="colgroup"] {
+  background: linear-gradient(var(--ink), var(--ink)) center bottom / calc(100% - 1.2rem) 1px no-repeat;
+}
+
+.bench-table thead tr:last-child th {
+  padding-bottom: 0.45rem;
+}
+
+.bench-table tbody {
+  border-top: 1px solid var(--ink);
+}
+
+.bench-reference {
+  background: rgba(24, 24, 24, 0.06);
+}
+
+.bench-table tbody tr:first-child > * {
+  padding-top: 0.55rem;
+}
+
+.bench-table tbody tr:last-child > * {
+  padding-bottom: 0.55rem;
+}
+
+.bench-table sub {
+  font-size: 0.68em;
+  vertical-align: -0.25em;
+}
+
+.bench-delta {
+  font-size: 0.88em;
+}
+
+.bench-delta.is-up {
+  color: #2f7d32;
+}
+
+.bench-delta.is-down {
+  color: #b3261e;
+}
+
+@media (max-width: 768px) {
+  .bench-table {
+    font-size: 0.9rem;
+  }
+}

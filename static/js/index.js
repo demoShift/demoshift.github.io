@@ -1329,6 +1329,63 @@ const setupChartAnimation = () => {
     observer.observe(chart);
 };
 
+const setupBenchChart = () => {
+    const section = document.querySelector("#benchmark");
+    if (!section) {
+        return;
+    }
+
+    const views = {
+        chart: section.querySelector("#bench-chart-wrap"),
+        table: section.querySelector("#bench-table-wrap"),
+    };
+    const legend = section.querySelector(".bench-legend");
+    const buttons = [...section.querySelectorAll("[data-bench-view]")];
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const view = button.dataset.benchView;
+            buttons.forEach((other) => {
+                const isActive = other === button;
+                other.classList.toggle("is-active", isActive);
+                other.setAttribute("aria-pressed", String(isActive));
+            });
+            Object.entries(views).forEach(([name, element]) => {
+                element.hidden = name !== view;
+            });
+            legend.style.visibility = view === "chart" ? "" : "hidden";
+        });
+    });
+
+    const tooltip = document.createElement("div");
+    tooltip.className = "bench-tooltip";
+    tooltip.setAttribute("role", "tooltip");
+    tooltip.hidden = true;
+    document.body.append(tooltip);
+
+    const show = (cell) => {
+        const rect = cell.getBoundingClientRect();
+        tooltip.textContent = cell.dataset.tip;
+        tooltip.hidden = false;
+        const half = tooltip.offsetWidth / 2 + 8;
+        const center = rect.left + rect.width / 2;
+        tooltip.style.left = `${Math.min(Math.max(center, half), window.innerWidth - half)}px`;
+        tooltip.style.top = `${Math.max(rect.top, tooltip.offsetHeight + 18)}px`;
+    };
+    const hide = () => {
+        tooltip.hidden = true;
+    };
+
+    section.querySelectorAll(".bench-cell").forEach((cell) => {
+        cell.setAttribute("aria-label", cell.dataset.tip);
+        cell.addEventListener("pointerenter", () => show(cell));
+        cell.addEventListener("pointerleave", hide);
+        cell.addEventListener("focus", () => show(cell));
+        cell.addEventListener("blur", hide);
+    });
+    views.chart.addEventListener("scroll", hide, { passive: true });
+    window.addEventListener("scroll", hide, { passive: true });
+};
+
 setupTableOfContents();
 setupIclFilm();
 setupPromoVideo();
@@ -1338,3 +1395,4 @@ setupPipelineAnimation();
 setupDataCompositionVideos();
 setupFrameworkFigureVideos();
 setupChartAnimation();
+setupBenchChart();

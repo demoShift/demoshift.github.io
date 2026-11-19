@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./static/css/bulma.min.css">
     <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="./static/css/index.css?v=20260830-audio4">
+    <link rel="stylesheet" href="./static/css/index.css?v=20261119-bench3">
     <link rel="icon" type="image/webp" href="./static/images/robot-logo-robbyant.webp">
-    <script defer src="./static/js/index.js?v=20260830-audio4"></script>
+    <script defer src="./static/js/index.js?v=20261119-bench3"></script>
 </head>
 
 <body>
@@ -32,6 +32,7 @@
         <a class="toc-link" href="#dataset">Dataset.</a>
         <a class="toc-link" href="#real-world-demo">Zero-shot<br>Testing.</a>
         <a class="toc-link" href="#robotwin">RoboTwin 2.0 Evaluation.</a>
+        <a class="toc-link" href="#benchmark">DemoShift-Bench<br>Results.</a>
     </aside>
 
     <main id="top">
@@ -615,27 +616,192 @@
                     </div>
                 </div>
 
-                <div class="robotwin-subsection robotwin-results" id="results">
-                    <h3 class="robotwin-subheading">Task-level Zero-shot Results.</h3>
-                    <p class="section-description">
-                        Across this held-out suite, DemoShift reaches 46.95% average success, surpassing the video-action baseline LingBot-VA by 29.50 percentage points.
-                    </p>
-                    <div class="result-legend" aria-label="Chart legend">
-                        <span><i class="legend-swatch legend-wan"></i>WAN</span>
-                        <span><i class="legend-swatch legend-lingbot"></i>LingBot-VA</span>
-                        <span><i class="legend-swatch legend-zero"></i>DemoShift</span>
+            </div>
+        </section>
+
+        <section class="section bench-section" id="benchmark">
+            <div class="container is-max-widescreen">
+                <h2 class="section-heading">DemoShift&#8209;Bench Results.</h2>
+                <p class="section-description">
+                    Success rate of each policy, averaged over the conditions of each shift axis. The gray block above a bar reaches that policy's success rate with the original human demonstration, so its height is the drop. The Table view lists every condition with its standard error.
+                </p>
+                <div class="bench-toolbar">
+                    <div class="result-legend bench-legend" aria-label="Chart legend">
+                        <span class="bench-legend-family">ICL policies</span>
+                        <span><i class="legend-swatch bench-swatch-m1"></i>Zero&#8209;WAM</span>
+                        <span><i class="legend-swatch bench-swatch-m2"></i>WorldScape+Caption</span>
+                        <span class="bench-legend-family">Agentic VLM policies</span>
+                        <span><i class="legend-swatch bench-swatch-m3"></i>GPT&#8209;6 Astra</span>
+                        <span><i class="legend-swatch bench-swatch-m4"></i>Claude Opus 5.5</span>
+                        <span><i class="legend-swatch bench-swatch-base"></i>Original human demo</span>
                     </div>
-                    <div class="results-chart" role="img" aria-label="Success rate comparison on seven unseen RoboTwin tasks">
-                        <div class="chart-axis" aria-hidden="true"><span>0</span><span>25</span><span>50</span><span>75</span><span>100%</span></div>
-                        <div class="chart-row"><div class="chart-task">Place object on scale</div><div class="chart-plot"><span class="chart-bar is-wan" style="--value: 3"><b>3.00</b></span><span class="chart-bar is-lingbot" style="--value: 6.17"><b>6.17</b></span><span class="chart-bar is-zero" style="--value: 24.67"><b>24.67</b></span></div></div>
-                        <div class="chart-row"><div class="chart-task">Stamp seal</div><div class="chart-plot"><span class="chart-bar is-wan" style="--value: 7.33"><b>7.33</b></span><span class="chart-bar is-lingbot" style="--value: 3.67"><b>3.67</b></span><span class="chart-bar is-zero" style="--value: 47"><b>47.00</b></span></div></div>
-                        <div class="chart-row"><div class="chart-task">Open microwave</div><div class="chart-plot"><span class="chart-bar is-wan" style="--value: 2.26"><b>2.26</b></span><span class="chart-bar is-lingbot" style="--value: 29.33"><b>29.33</b></span><span class="chart-bar is-zero" style="--value: 59"><b>59.00</b></span></div></div>
-                        <div class="chart-row"><div class="chart-task">Move stapler<br>to pad</div><div class="chart-plot"><span class="chart-bar is-wan" style="--value: 10.67"><b>10.67</b></span><span class="chart-bar is-lingbot" style="--value: 23.33"><b>23.33</b></span><span class="chart-bar is-zero" style="--value: 69.14"><b>69.14</b></span></div></div>
-                        <div class="chart-row"><div class="chart-task">Place bread into basket</div><div class="chart-plot"><span class="chart-bar is-wan" style="--value: 15.26"><b>15.26</b></span><span class="chart-bar is-lingbot" style="--value: 17.33"><b>17.33</b></span><span class="chart-bar is-zero" style="--value: 35"><b>35.00</b></span></div></div>
-                        <div class="chart-row"><div class="chart-task">Place empty cup</div><div class="chart-plot"><span class="chart-bar is-wan" style="--value: 38.33"><b>38.33</b></span><span class="chart-bar is-lingbot" style="--value: 42.33"><b>42.33</b></span><span class="chart-bar is-zero" style="--value: 84.87"><b>84.87</b></span></div></div>
-                        <div class="chart-row"><div class="chart-task">Stack three blocks</div><div class="chart-plot"><span class="chart-bar is-wan" style="--value: 0"><b>0.00</b></span><span class="chart-bar is-lingbot" style="--value: 0"><b>0.00</b></span><span class="chart-bar is-zero" style="--value: 9"><b>9.00</b></span></div></div>
-                        <div class="chart-row chart-average"><div class="chart-task">Average</div><div class="chart-plot"><span class="chart-bar is-wan" style="--value: 10.98"><b>10.98</b></span><span class="chart-bar is-lingbot" style="--value: 17.45"><b>17.45</b></span><span class="chart-bar is-zero" style="--value: 46.95"><b>46.95</b></span></div></div>
+                    <div class="bench-view-toggle" role="group" aria-label="Results view">
+                        <button type="button" class="is-active" aria-pressed="true" data-bench-view="chart">Chart</button>
+                        <button type="button" aria-pressed="false" data-bench-view="table">Table</button>
                     </div>
+                </div>
+                <div class="bench-chart-wrap" id="bench-chart-wrap" role="region" aria-label="DemoShift-Bench results chart" tabindex="0">
+                    <div class="bench-chart">
+                        <div class="bench-yaxis" aria-hidden="true"><span class="bench-yaxis-title">Success rate (%)</span><i style="--at: 0">0</i><i style="--at: 20">20</i><i style="--at: 40">40</i><i style="--at: 60">60</i><i style="--at: 80">80</i></div>
+                        <div class="bench-plot">
+                            <div class="bench-grid" aria-hidden="true"></div>
+                            <div class="bench-cell bench-cell--original" tabindex="0" data-tip="Original human demo&#10;Zero-WAM: 39.9 &plusmn;5.1&#10;WorldScape+Caption: 36.2 &plusmn;6.5&#10;GPT-6 Astra: 67.1 &plusmn;11.0&#10;Claude Opus 5.5: 68.6 &plusmn;10.9"><span class="bench-bars"><span class="bench-col bench-m1 is-base" style="--v: 39.9; --b: 39.9; --l: 39.9"><i></i><b>39.9</b></span><span class="bench-col bench-m2 is-base" style="--v: 36.2; --b: 36.2; --l: 36.2"><i></i><b>36.2</b></span><span class="bench-col bench-m3 is-base" style="--v: 67.1; --b: 67.1; --l: 67.1"><i></i><b>67.1</b></span><span class="bench-col bench-m4 is-base" style="--v: 68.6; --b: 68.6; --l: 68.6"><i></i><b>68.6</b></span></span><span class="bench-cond">Original<br>Human Demo</span></div>
+                            <div class="bench-cell" tabindex="0" data-tip="Viewpoint: mean of 4 conditions&#10;Zero-WAM: 37.7 (&minus;2.2 vs. 39.9)&#10;WorldScape+Caption: 37.6 (+1.4 vs. 36.2)&#10;GPT-6 Astra: 70.4 (+3.3 vs. 67.1)&#10;Claude Opus 5.5: 70.0 (+1.4 vs. 68.6)"><span class="bench-bars"><span class="bench-col bench-m1 is-down" style="--v: 37.7; --b: 39.9; --l: 39.9"><i></i><b>37.7</b></span><span class="bench-col bench-m2 is-up" style="--v: 37.6; --b: 36.2; --l: 37.6"><i></i><b>37.6</b></span><span class="bench-col bench-m3 is-up" style="--v: 70.4; --b: 67.1; --l: 70.4"><i></i><b>70.4</b></span><span class="bench-col bench-m4 is-up" style="--v: 70.0; --b: 68.6; --l: 70.0"><i></i><b>70.0</b></span></span><span class="bench-cond">Viewpoint<small>mean of 4 conditions</small></span></div>
+                            <div class="bench-cell" tabindex="0" data-tip="Speed: mean of 2 conditions&#10;Zero-WAM: 7.9 (&minus;32.0 vs. 39.9)&#10;WorldScape+Caption: 12.6 (&minus;23.6 vs. 36.2)&#10;GPT-6 Astra: 32.2 (&minus;34.9 vs. 67.1)&#10;Claude Opus 5.5: 26.5 (&minus;42.1 vs. 68.6)"><span class="bench-bars"><span class="bench-col bench-m1 is-down" style="--v: 7.9; --b: 39.9; --l: 7.9"><i></i><b>7.9</b></span><span class="bench-col bench-m2 is-down" style="--v: 12.6; --b: 36.2; --l: 12.6"><i></i><b>12.6</b></span><span class="bench-col bench-m3 is-down" style="--v: 32.2; --b: 67.1; --l: 32.2"><i></i><b>32.2</b></span><span class="bench-col bench-m4 is-down" style="--v: 26.5; --b: 68.6; --l: 26.5"><i></i><b>26.5</b></span></span><span class="bench-cond">Speed<small>mean of 2 conditions</small></span></div>
+                            <div class="bench-cell" tabindex="0" data-tip="Distractor: mean of 4 conditions&#10;Zero-WAM: 29.7 (&minus;10.2 vs. 39.9)&#10;WorldScape+Caption: 25.8 (&minus;10.4 vs. 36.2)&#10;GPT-6 Astra: 59.7 (&minus;7.4 vs. 67.1)&#10;Claude Opus 5.5: 68.2 (&minus;0.4 vs. 68.6)"><span class="bench-bars"><span class="bench-col bench-m1 is-down" style="--v: 29.7; --b: 39.9; --l: 29.7"><i></i><b>29.7</b></span><span class="bench-col bench-m2 is-down" style="--v: 25.8; --b: 36.2; --l: 25.8"><i></i><b>25.8</b></span><span class="bench-col bench-m3 is-down" style="--v: 59.7; --b: 67.1; --l: 59.7"><i></i><b>59.7</b></span><span class="bench-col bench-m4 is-down" style="--v: 68.2; --b: 68.6; --l: 68.6"><i></i><b>68.2</b></span></span><span class="bench-cond">Distractor<small>mean of 4 conditions</small></span></div>
+                            <div class="bench-cell" tabindex="0" data-tip="Specification: mean of 3 conditions&#10;Zero-WAM: 15.1 (&minus;24.8 vs. 39.9)&#10;WorldScape+Caption: 10.2 (&minus;26.0 vs. 36.2)&#10;GPT-6 Astra: 35.7 (&minus;31.4 vs. 67.1)&#10;Claude Opus 5.5: 40.0 (&minus;28.6 vs. 68.6)"><span class="bench-bars"><span class="bench-col bench-m1 is-down" style="--v: 15.1; --b: 39.9; --l: 15.1"><i></i><b>15.1</b></span><span class="bench-col bench-m2 is-down" style="--v: 10.2; --b: 36.2; --l: 10.2"><i></i><b>10.2</b></span><span class="bench-col bench-m3 is-down" style="--v: 35.7; --b: 67.1; --l: 35.7"><i></i><b>35.7</b></span><span class="bench-col bench-m4 is-down" style="--v: 40.0; --b: 68.6; --l: 40.0"><i></i><b>40.0</b></span></span><span class="bench-cond">Specification<small>mean of 3 conditions</small></span></div>
+                            <div class="bench-cell" tabindex="0" data-tip="Cross-Modal Conflict: mean of 2 conditions&#10;Zero-WAM: 32.4 (&minus;7.5 vs. 39.9)&#10;WorldScape+Caption: not evaluated&#10;GPT-6 Astra: 67.9 (+0.8 vs. 67.1)&#10;Claude Opus 5.5: 63.6 (&minus;5.0 vs. 68.6)"><span class="bench-bars"><span class="bench-col bench-m1 is-down" style="--v: 32.4; --b: 39.9; --l: 32.4"><i></i><b>32.4</b></span><span class="bench-col bench-m2 is-na"><em>n/a</em></span><span class="bench-col bench-m3 is-up" style="--v: 67.9; --b: 67.1; --l: 67.9"><i></i><b>67.9</b></span><span class="bench-col bench-m4 is-down" style="--v: 63.6; --b: 68.6; --l: 63.6"><i></i><b>63.6</b></span></span><span class="bench-cond">Cross-Modal<br>Conflict<small>mean of 2 conditions</small></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bench-table-wrap" id="bench-table-wrap" hidden tabindex="0" role="region" aria-label="DemoShift-Bench results table">
+                    <table class="bench-table">
+                        <thead>
+                            <tr class="bench-group-row">
+                                <th colspan="2"></th>
+                                <th colspan="2" scope="colgroup">ICL policies</th>
+                                <th colspan="2" scope="colgroup">Agentic VLM policies</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Axis</th>
+                                <th scope="col">Condition</th>
+                                <th scope="col">Zero&#8209;WAM</th>
+                                <th scope="col">WorldScape+Caption</th>
+                                <th scope="col">GPT&#8209;6 Astra</th>
+                                <th scope="col">Claude Opus 5.5</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bench-reference">
+                            <tr>
+                                <th scope="row">Reference</th>
+                                <th scope="row">Human Demo (<i>V</i><sub>0</sub>, <i>c</i><sub>0</sub>, <i>E</i><sub>0</sub>)</th>
+                                <td>39.9<sub>&plusmn;5.1</sub></td>
+                                <td>36.2<sub>&plusmn;6.5</sub></td>
+                                <td>67.1<sub>&plusmn;11.0</sub></td>
+                                <td>68.6<sub>&plusmn;10.9</sub></td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <th scope="rowgroup" rowspan="4" class="bench-axis">Viewpoint</th>
+                            <th scope="row">Top-View</th>
+                            <td>44.0<sub>&plusmn;5.2</sub> <span class="bench-delta is-up">+4.1</span></td>
+                            <td>38.1<sub>&plusmn;6.6</sub> <span class="bench-delta is-up">+1.9</span></td>
+                            <td>77.1<sub>&plusmn;9.8</sub> <span class="bench-delta is-up">+10.0</span></td>
+                            <td>74.3<sub>&plusmn;10.2</sub> <span class="bench-delta is-up">+5.7</span></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Close 3rd-Person</th>
+                            <td>35.7<sub>&plusmn;5.0</sub> <span class="bench-delta is-down">&minus;4.2</span></td>
+                            <td>30.5<sub>&plusmn;6.2</sub> <span class="bench-delta is-down">&minus;5.7</span></td>
+                            <td>72.9<sub>&plusmn;10.4</sub> <span class="bench-delta is-up">+5.8</span></td>
+                            <td>62.9<sub>&plusmn;11.3</sub> <span class="bench-delta is-down">&minus;5.7</span></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Distant 3rd-Person</th>
+                            <td>36.6<sub>&plusmn;5.0</sub> <span class="bench-delta is-down">&minus;3.3</span></td>
+                            <td>43.8<sub>&plusmn;6.7</sub> <span class="bench-delta is-up">+7.6</span></td>
+                            <td>68.6<sub>&plusmn;10.9</sub> <span class="bench-delta is-up">+1.5</span></td>
+                            <td>75.7<sub>&plusmn;10.0</sub> <span class="bench-delta is-up">+7.1</span></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Handheld Moving</th>
+                            <td>34.3<sub>&plusmn;5.0</sub> <span class="bench-delta is-down">&minus;5.6</span></td>
+                            <td>38.1<sub>&plusmn;6.6</sub> <span class="bench-delta is-up">+1.9</span></td>
+                            <td>62.9<sub>&plusmn;11.3</sub> <span class="bench-delta is-down">&minus;4.2</span></td>
+                            <td>67.1<sub>&plusmn;11.0</sub> <span class="bench-delta is-down">&minus;1.5</span></td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <th scope="rowgroup" rowspan="2" class="bench-axis">Speed</th>
+                            <th scope="row">2x Speed Instruction</th>
+                            <td>4.9<sub>&plusmn;2.3</sub> <span class="bench-delta is-down">&minus;35.0</span></td>
+                            <td>17.1<sub>&plusmn;5.1</sub> <span class="bench-delta is-down">&minus;19.1</span></td>
+                            <td>44.3<sub>&plusmn;11.6</sub> <span class="bench-delta is-down">&minus;22.8</span></td>
+                            <td>34.3<sub>&plusmn;11.1</sub> <span class="bench-delta is-down">&minus;34.3</span></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">0.5x Speed Instruction</th>
+                            <td>10.9<sub>&plusmn;3.3</sub> <span class="bench-delta is-down">&minus;29.0</span></td>
+                            <td>8.1<sub>&plusmn;3.7</sub> <span class="bench-delta is-down">&minus;28.1</span></td>
+                            <td>20.0<sub>&plusmn;9.4</sub> <span class="bench-delta is-down">&minus;47.1</span></td>
+                            <td>18.6<sub>&plusmn;9.1</sub> <span class="bench-delta is-down">&minus;50.0</span></td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <th scope="rowgroup" rowspan="4" class="bench-axis">Distractor</th>
+                            <th scope="row">In Demo</th>
+                            <td>36.0<sub>&plusmn;5.0</sub> <span class="bench-delta is-down">&minus;3.9</span></td>
+                            <td>35.2<sub>&plusmn;6.5</sub> <span class="bench-delta is-down">&minus;1.0</span></td>
+                            <td>61.4<sub>&plusmn;11.4</sub> <span class="bench-delta is-down">&minus;5.7</span></td>
+                            <td>70.0<sub>&plusmn;10.7</sub> <span class="bench-delta is-up">+1.4</span></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Object Ambiguity (Seen)</th>
+                            <td>30.9<sub>&plusmn;4.8</sub> <span class="bench-delta is-down">&minus;9.0</span></td>
+                            <td>28.1<sub>&plusmn;6.1</sub> <span class="bench-delta is-down">&minus;8.1</span></td>
+                            <td>64.3<sub>&plusmn;11.2</sub> <span class="bench-delta is-down">&minus;2.8</span></td>
+                            <td>70.0<sub>&plusmn;10.7</sub> <span class="bench-delta is-up">+1.4</span></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Object Ambiguity (Unseen)</th>
+                            <td>32.6<sub>&plusmn;4.9</sub> <span class="bench-delta is-down">&minus;7.3</span></td>
+                            <td>30.0<sub>&plusmn;6.2</sub> <span class="bench-delta is-down">&minus;6.2</span></td>
+                            <td>60.0<sub>&plusmn;11.5</sub> <span class="bench-delta is-down">&minus;7.1</span></td>
+                            <td>62.9<sub>&plusmn;11.3</sub> <span class="bench-delta is-down">&minus;5.7</span></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Instance Ambiguity</th>
+                            <td>19.4<sub>&plusmn;4.1</sub> <span class="bench-delta is-down">&minus;20.5</span></td>
+                            <td>10.0<sub>&plusmn;4.1</sub> <span class="bench-delta is-down">&minus;26.2</span></td>
+                            <td>52.9<sub>&plusmn;11.7</sub> <span class="bench-delta is-down">&minus;14.2</span></td>
+                            <td>70.0<sub>&plusmn;10.7</sub> <span class="bench-delta is-up">+1.4</span></td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <th scope="rowgroup" rowspan="3" class="bench-axis">Specification</th>
+                            <th scope="row">Repeat</th>
+                            <td>2.9<sub>&plusmn;1.8</sub> <span class="bench-delta is-down">&minus;37.0</span></td>
+                            <td>0.0<sub>&plusmn;1.8</sub> <span class="bench-delta is-down">&minus;36.2</span></td>
+                            <td>28.6<sub>&plusmn;10.6</sub> <span class="bench-delta is-down">&minus;38.5</span></td>
+                            <td>42.9<sub>&plusmn;11.6</sub> <span class="bench-delta is-down">&minus;25.7</span></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">No Collision</th>
+                            <td>10.0<sub>&plusmn;3.1</sub> <span class="bench-delta is-down">&minus;29.9</span></td>
+                            <td>1.0<sub>&plusmn;1.3</sub> <span class="bench-delta is-down">&minus;35.2</span></td>
+                            <td>8.6<sub>&plusmn;6.6</sub> <span class="bench-delta is-down">&minus;58.5</span></td>
+                            <td>12.9<sub>&plusmn;7.9</sub> <span class="bench-delta is-down">&minus;55.7</span></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Arm</th>
+                            <td>32.3<sub>&plusmn;4.9</sub> <span class="bench-delta is-down">&minus;7.6</span></td>
+                            <td>29.5<sub>&plusmn;6.2</sub> <span class="bench-delta is-down">&minus;6.7</span></td>
+                            <td>70.0<sub>&plusmn;10.7</sub> <span class="bench-delta is-up">+2.9</span></td>
+                            <td>64.3<sub>&plusmn;11.2</sub> <span class="bench-delta is-down">&minus;4.3</span></td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <th scope="rowgroup" rowspan="2" class="bench-axis">Cross-Modal Conflict</th>
+                            <th scope="row">Random Video</th>
+                            <td>23.1<sub>&plusmn;4.4</sub> <span class="bench-delta is-down">&minus;16.8</span></td>
+                            <td class="bench-na" aria-label="not applicable">&ndash;</td>
+                            <td>65.7<sub>&plusmn;11.1</sub> <span class="bench-delta is-down">&minus;1.4</span></td>
+                            <td>62.9<sub>&plusmn;11.3</sub> <span class="bench-delta is-down">&minus;5.7</span></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Random Instruction</th>
+                            <td>41.7<sub>&plusmn;5.2</sub> <span class="bench-delta is-up">+1.8</span></td>
+                            <td class="bench-na" aria-label="not applicable">&ndash;</td>
+                            <td>70.0<sub>&plusmn;10.7</sub> <span class="bench-delta is-up">+2.9</span></td>
+                            <td>64.3<sub>&plusmn;11.2</sub> <span class="bench-delta is-down">&minus;4.3</span></td>
+                          </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
