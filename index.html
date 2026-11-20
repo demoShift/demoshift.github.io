@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./static/css/bulma.min.css">
     <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="./static/css/index.css?v=20261120-trim">
+    <link rel="stylesheet" href="./static/css/index.css?v=20261120-findings">
     <link rel="icon" type="image/svg+xml" href="./static/images/favicon.svg">
-    <script defer src="./static/js/index.js?v=20261120-trim"></script>
+    <script defer src="./static/js/index.js?v=20261120-findings"></script>
 </head>
 
 <body>
@@ -27,6 +27,7 @@
         <div class="toc-title">Contents</div>
         <a class="toc-link is-active" href="#overview">Abstract.</a>
         <a class="toc-link" href="#demo-shifts">Demonstration<br>Shifts.</a>
+        <a class="toc-link" href="#findings">Main Findings.</a>
         <a class="toc-link" href="#failure-cases">Failure Cases.</a>
         <a class="toc-link" href="#benchmark">DemoShift-Bench<br>Results.</a>
     </aside>
@@ -47,15 +48,12 @@
 
         <section class="section motivation-section" id="overview">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">Abstract.</h2>
+                <h2 class="section-heading">Evaluate ICL Policies &amp; Frontier VLMs on real-world human demonstration</h2>
                 <div class="motivation-panel">
                     <p>
                         In-context learning (ICL) enables robot policies to perform unseen tasks from a human demonstration video without task-specific training. However, existing evaluations rely on curated videos closely matched to the robot's workspace. We ask whether these policies can follow casual, everyday recordings and adapt to changed execution conditions.
                         To this end, we introduce DemoShift-Bench, which pairs real human recordings with manipulation tasks and applies controlled shifts along five axes: camera viewpoint (top-view, third-person, and handheld), execution speed (2&times; or 0.5&times;), distractors in the demonstration or scene, specification (repetition, collision avoidance, or arm selection), and cross-modal conflicts between video and text.
                         Evaluating both ICL policies and frontier agentic vision-language model (VLM) policies on DemoShift-Bench reveals an average success drop of 12&ndash;14 percentage points under shifts and exposes three key limitations.
-                        First, earlier video-conditioned vision-language-action (VLA) policies rely mainly on text instructions rather than on human demonstration videos.
-                        Second, current ICL policies that do use the video still fail to reproduce demonstrated actions precisely, resolve object and instance ambiguity, or follow added specifications and cross-modal overrides.
-                        Third, frontier agentic VLM policies handle visual shifts, arm selection, and cross-modal conflicts far more reliably, yet they still fail to repeat tasks, avoid collisions, or adjust execution speed, and they incur high token costs.
                     </p>
                 </div>
             </div>
@@ -134,9 +132,25 @@
             </div>
         </section>
 
+        <section class="section motivation-section findings-section" id="findings">
+            <div class="container is-max-widescreen">
+                <h2 class="section-heading">Main Findings.</h2>
+                <div class="motivation-panel">
+                    <p>
+                        Evaluating both ICL policies and frontier agentic vision-language model (VLM) policies on DemoShift-Bench reveals an average success drop of 12&ndash;14 percentage points under shifts and exposes three key limitations.
+                    </p>
+                    <ul class="contribution-list">
+                        <li>First, earlier video-conditioned vision-language-action (VLA) policies rely mainly on text instructions rather than on human demonstration videos.</li>
+                        <li>Second, current ICL policies that do use the video still fail to reproduce demonstrated actions precisely, resolve object and instance ambiguity, or follow added specifications and cross-modal overrides.</li>
+                        <li>Third, frontier agentic VLM policies handle visual shifts, arm selection, and cross-modal conflicts far more reliably, yet they still fail to repeat tasks, avoid collisions, or adjust execution speed, and they incur high token costs.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section class="section robotwin-section failure-section" id="failure-cases">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">Failure Cases.</h2>
+                <h2 class="section-heading">Failure Cases Visualization</h2>
 
                 <div class="robotwin-subsection">
                     <div class="failure-overview">
