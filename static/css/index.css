@@ -284,6 +284,22 @@ button:focus-visible,
   line-height: 1.62;
 }
 
+.contribution-list {
+  width: 100%;
+  margin: 0.85rem 0 0;
+  padding-left: 1.35rem;
+  color: var(--ink);
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.62;
+  list-style: disc;
+}
+
+.contribution-list li + li {
+  margin-top: 0.65rem;
+}
+
 .icl-film {
   margin-top: 1.6rem;
   padding: 0.8rem 0 0.7rem;
@@ -1049,7 +1065,8 @@ button:focus-visible,
     display: none;
   }
 
-  .motivation-panel p {
+  .motivation-panel p,
+  .contribution-list {
     font-size: 0.88rem;
     line-height: 1.65;
   }
