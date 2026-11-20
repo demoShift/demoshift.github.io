@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./static/css/bulma.min.css">
     <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="./static/css/index.css?v=20261120-findings">
+    <link rel="stylesheet" href="./static/css/index.css?v=20261120-howfail">
     <link rel="icon" type="image/svg+xml" href="./static/images/favicon.svg">
-    <script defer src="./static/js/index.js?v=20261120-findings"></script>
+    <script defer src="./static/js/index.js?v=20261120-howfail"></script>
 </head>
 
 <body>
@@ -28,8 +28,9 @@
         <a class="toc-link is-active" href="#overview">Abstract.</a>
         <a class="toc-link" href="#demo-shifts">Demonstration<br>Shifts.</a>
         <a class="toc-link" href="#findings">Main Findings.</a>
+        <a class="toc-link" href="#benchmark">Performance<br>Drop.</a>
+        <a class="toc-link" href="#how-they-fail">How They<br>Fail.</a>
         <a class="toc-link" href="#failure-cases">Failure Cases.</a>
-        <a class="toc-link" href="#benchmark">DemoShift-Bench<br>Results.</a>
     </aside>
 
     <main id="top">
@@ -148,68 +149,9 @@
             </div>
         </section>
 
-        <section class="section robotwin-section failure-section" id="failure-cases">
-            <div class="container is-max-widescreen">
-                <h2 class="section-heading">Failure Cases Visualization</h2>
-
-                <div class="robotwin-subsection">
-                    <div class="failure-overview">
-                        <div class="failure-copy">
-                            <h3 class="robotwin-subheading">How Policies Fail.</h3>
-                            <p class="section-description">
-                                [Placeholder] Summarize the failure taxonomy here: which failure types dominate under each shift axis, how Zero&#8209;WAM and GPT&#8209;6 Astra differ, and what the breakdown says about where ICL policies stop following the demonstration or the instruction.
-                            </p>
-                        </div>
-                        <figure class="failure-figure">
-                            <a href="./static/images/failure_quantitative_1024.png" target="_blank" rel="noopener">
-                                <img src="./static/images/failure_quantitative_1024.png" width="1024" height="369" alt="Breakdown of labeled failures for Zero-WAM and GPT-6 Astra on pick-and-place tasks under speed, distractor and specification shifts, split into instruction violated, grasp failure, placement failure, only a distractor handled, and distractor touched along with target.">
-                            </a>
-                        </figure>
-                    </div>
-
-                    <section class="robotwin-task-group robotwin-task-group--primary failure-group" aria-labelledby="failure-label-cases">
-                        <div class="robotwin-group-label">
-                            <h4 id="failure-label-cases">Failure<br>Examples</h4>
-                        </div>
-                        <div class="robotwin-task-grid failure-grid">
-                            <figure class="robotwin-task">
-                                <video src="./static/videos/failure_cases/speed.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Speed failure case video"></video>
-                                <figcaption><span>Speed</span></figcaption>
-                            </figure>
-                            <figure class="robotwin-task">
-                                <video src="./static/videos/failure_cases/object-ambiguity.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Object ambiguity failure case video"></video>
-                                <figcaption><span>Object ambiguity</span></figcaption>
-                            </figure>
-                            <figure class="robotwin-task">
-                                <video src="./static/videos/failure_cases/collision.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Collision failure case video"></video>
-                                <figcaption><span>Collision</span></figcaption>
-                            </figure>
-                            <figure class="robotwin-task">
-                                <video src="./static/videos/failure_cases/wrong-arm.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Wrong arm failure case video"></video>
-                                <figcaption><span>Wrong arm</span></figcaption>
-                            </figure>
-                            <figure class="robotwin-task">
-                                <video src="./static/videos/failure_cases/ignore-video.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Ignore video failure case video"></video>
-                                <figcaption><span>Ignore video</span></figcaption>
-                            </figure>
-                        </div>
-                    </section>
-                </div>
-
-            </div>
-        </section>
-
         <section class="section bench-section" id="benchmark">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">Perform Drop under different axes</h2>
-                <p class="section-description">
-                    For ICL polices: Viewpoint shifts hurt when they occlude the target,as do distractors in the robot's scene. 
-                    Speed and specification instructions are rarely followed. Under cross-modal conflicts, Zero-WAM follows only411
-                    the video.
-<!-- Make them two separate paragraph -->
-                    For Agentic Polices: Viewpoint shifts, conflicts, and arm specifications barely
-                    hurt agentic policies.  Yet they still fail under Speed, Repeat, and No Collision.  This robustness is costly. 
-                </p>
+                <h2 class="section-heading">Performance Drop under Different Axes.</h2>
                 <div class="bench-toolbar">
                     <div class="result-legend bench-legend" aria-label="Chart legend">
                         <span class="bench-legend-family">ICL policies</span>
@@ -388,6 +330,89 @@
                         </tbody>
                     </table>
                 </div>
+                <p class="section-description bench-notes">
+                    <strong>For ICL policies:</strong> Viewpoint shifts hurt when they occlude the target, as do distractors in the robot's scene. Speed and specification instructions are rarely followed. Under cross-modal conflicts, Zero&#8209;WAM follows only the video.
+                </p>
+                <p class="section-description">
+                    <strong>For agentic policies:</strong> Viewpoint shifts, conflicts, and arm specifications barely hurt agentic policies. Yet they still fail under Speed, Repeat, and No Collision. This robustness is costly.
+                </p>
+            </div>
+        </section>
+
+        <section class="section why-fail-section" id="how-they-fail">
+            <div class="container is-max-widescreen">
+                <h2 class="section-heading">How They Fail: Policies Follow Neither Demonstrated Details Nor Instructions.</h2>
+                <div class="why-fail-layout">
+                    <div class="why-fail-copy">
+                        <p class="section-description">
+                            <strong>Policies do not use the affordance the demonstration shows.</strong> Even when a rollout succeeds, it often ignores how the human interacts with the object. In the open-microwave task on the right, the demonstrator grasps the handle and pulls the door; Zero&#8209;WAM instead hooks its gripper over the top edge of the door and drags it open.
+                        </p>
+                    </div>
+                    <div class="why-fail-clips">
+                        <figure class="shift-clip why-fail-clip why-fail-clip--wide">
+                            <video src="./static/videos/why_failure/microwave-original.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Human demonstration opening the microwave by its handle"></video>
+                            <span class="shift-clip-role">Human demo</span>
+                            <figcaption>Original</figcaption>
+                        </figure>
+                        <figure class="shift-clip why-fail-clip">
+                            <video src="./static/videos/why_failure/microwave-zerowam-nohandle.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Zero-WAM rollout opening the microwave without using the handle"></video>
+                            <span class="shift-clip-role">Robot rollout</span>
+                            <span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span></span>
+                            <figcaption>No handle</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section robotwin-section failure-section" id="failure-cases">
+            <div class="container is-max-widescreen">
+                <h2 class="section-heading">Failure Cases Visualization.</h2>
+
+                <div class="robotwin-subsection">
+                    <div class="failure-overview">
+                        <div class="failure-copy">
+                            <h3 class="robotwin-subheading">How Policies Fail.</h3>
+                            <p class="section-description">
+                                <strong>Target confusion and ignored requests cause failures.</strong> With distractors added to the scene (<em>Object ambiguity</em>), the robot grasps the phone instead of the stamp: it knows to pick something up, but not which object the demonstration specifies, consistent with the 6.2&ndash;9.0 percentage-point drop under Object Ambiguity. Told not to touch other objects (<em>Collision</em>), the robot places the cup on the coaster but knocks the can off the table on the way, executing what the demonstration shows and ignoring the added specification.
+                            </p>
+                        </div>
+                        <figure class="failure-figure">
+                            <a href="./static/images/failure_quantitative_1024.png" target="_blank" rel="noopener">
+                                <img src="./static/images/failure_quantitative_1024.png" width="1024" height="369" alt="Breakdown of labeled failures for Zero-WAM and GPT-6 Astra on pick-and-place tasks under speed, distractor and specification shifts, split into instruction violated, grasp failure, placement failure, only a distractor handled, and distractor touched along with target.">
+                            </a>
+                        </figure>
+                    </div>
+
+                    <section class="robotwin-task-group robotwin-task-group--primary failure-group" aria-labelledby="failure-label-cases">
+                        <div class="robotwin-group-label">
+                            <h4 id="failure-label-cases">Failure<br>Examples</h4>
+                        </div>
+                        <div class="robotwin-task-grid failure-grid">
+                            <figure class="robotwin-task">
+                                <video src="./static/videos/failure_cases/speed.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Speed failure case video"></video>
+                                <figcaption><span>Speed</span></figcaption>
+                            </figure>
+                            <figure class="robotwin-task">
+                                <video src="./static/videos/failure_cases/object-ambiguity.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Object ambiguity failure case video"></video>
+                                <figcaption><span>Object ambiguity</span></figcaption>
+                            </figure>
+                            <figure class="robotwin-task">
+                                <video src="./static/videos/failure_cases/collision.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Collision failure case video"></video>
+                                <figcaption><span>Collision</span></figcaption>
+                            </figure>
+                            <figure class="robotwin-task">
+                                <video src="./static/videos/failure_cases/wrong-arm.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Wrong arm failure case video"></video>
+                                <figcaption><span>Wrong arm</span></figcaption>
+                            </figure>
+                            <figure class="robotwin-task">
+                                <video src="./static/videos/failure_cases/ignore-video.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Ignore video failure case video"></video>
+                                <figcaption><span>Ignore video</span></figcaption>
+                            </figure>
+                        </div>
+                    </section>
+                </div>
+
             </div>
         </section>
 
