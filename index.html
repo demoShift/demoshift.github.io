@@ -359,36 +359,8 @@
             <div class="container is-max-widescreen">
                 <h2 class="section-heading">Failure Cases Analysis. <span class="paper-ref">(Section 4.5, Appendix A)</span></h2>
 
-                <div class="robotwin-subsection" id="how-they-fail">
-                    <div class="why-fail-layout">
-                        <div class="why-fail-copy">
-                            <p class="section-description">
-                                <strong>Policies do not use the affordance the demonstration shows.</strong> Even when a rollout succeeds, it often ignores how the human interacts with the object. In the open-microwave task on the right, the demonstrator grasps the handle and pulls the door; Zero&#8209;WAM instead hooks its gripper over the top edge of the door and drags it open. <span class="paper-ref">(Section 4.5, Figure 5)</span>
-                            </p>
-                        </div>
-                        <div class="why-fail-clips">
-                            <figure class="shift-clip why-fail-clip why-fail-clip--wide">
-                                <video src="./static/videos/why_failure/microwave-original.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Human demonstration opening the microwave by its handle"></video>
-                                <span class="shift-clip-role">Human demo</span>
-                                <figcaption>Original</figcaption>
-                            </figure>
-                            <figure class="shift-clip why-fail-clip">
-                                <video src="./static/videos/why_failure/microwave-zerowam-nohandle.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Zero-WAM rollout opening the microwave without using the handle"></video>
-                                <span class="shift-clip-role">Robot rollout</span>
-                                <span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span></span>
-                                <figcaption>No handle</figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="robotwin-subsection">
                     <div class="failure-overview">
-                        <div class="failure-copy">
-                            <p class="section-description">
-                                <strong>Target confusion and ignored requests cause failures.</strong> With distractors added to the scene (<em>Object ambiguity</em>), the robot grasps the phone instead of the stamp: it knows to pick something up, but not which object the demonstration specifies, consistent with the 6.2&ndash;9.0 percentage-point drop under Object Ambiguity. Told not to touch other objects (<em>Collision</em>), the robot places the cup on the coaster but knocks the can off the table on the way, executing what the demonstration shows and ignoring the added specification. <span class="paper-ref">(Section 4.5, Figure 4)</span>
-                            </p>
-                        </div>
                         <figure class="failure-figure">
                             <a href="./static/images/failure_quantitative.svg" target="_blank" rel="noopener">
                                 <img src="./static/images/failure_quantitative.svg" width="1283" height="464" alt="Breakdown of labeled failures for Zero-WAM and GPT-6 Astra on pick-and-place tasks under speed, distractor and specification shifts, split into instruction violated, grasp failure, placement failure, only a distractor handled, and distractor touched along with target.">
@@ -424,6 +396,37 @@
                             </figure>
                         </div>
                     </section>
+                </div>
+
+                <div class="robotwin-subsection" id="how-they-fail">
+                    <div class="why-fail-layout">
+                        <div class="why-fail-copy">
+                            <p class="section-description">
+                                <strong>Policies do not use the affordance the demonstration shows.</strong> Even when a rollout succeeds, it often ignores how the human interacts with the object. In the open-microwave task on the right, the demonstrator grasps the handle and pulls the door; Zero&#8209;WAM instead hooks its gripper over the top edge of the door and drags it open. <span class="paper-ref">(Section 4.5, Figure 5)</span>
+                            </p>
+                        </div>
+                        <div class="why-fail-clips">
+                            <figure class="shift-clip why-fail-clip why-fail-clip--wide">
+                                <video src="./static/videos/why_failure/microwave-original.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Human demonstration opening the microwave by its handle"></video>
+                                <span class="shift-clip-role">Human demo</span>
+                                <figcaption>Original</figcaption>
+                            </figure>
+                            <figure class="shift-clip why-fail-clip">
+                                <video src="./static/videos/why_failure/microwave-zerowam-nohandle.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Zero-WAM rollout opening the microwave without using the handle"></video>
+                                <span class="shift-clip-role">Robot rollout</span>
+                                <span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span></span>
+                                <figcaption>No handle</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="robotwin-subsection">
+                    <div class="failure-copy">
+                        <p class="section-description">
+                            <strong>Target confusion and ignored requests cause failures.</strong> With distractors added to the scene (<em>Object ambiguity</em>), the robot grasps the phone instead of the stamp: it knows to pick something up, but not which object the demonstration specifies, consistent with the 6.2&ndash;9.0 percentage-point drop under Object Ambiguity. Told not to touch other objects (<em>Collision</em>), the robot places the cup on the coaster but knocks the can off the table on the way, executing what the demonstration shows and ignoring the added specification. <span class="paper-ref">(Section 4.5, Figure 4)</span>
+                        </p>
+                    </div>
                 </div>
 
             </div>
