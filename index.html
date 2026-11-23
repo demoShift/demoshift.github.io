@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./static/css/bulma.min.css">
     <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="./static/css/index.css?v=20261122-rows">
+    <link rel="stylesheet" href="./static/css/index.css?v=20261122-overview">
     <link rel="icon" type="image/svg+xml" href="./static/images/favicon.svg">
-    <script defer src="./static/js/index.js?v=20261122-rows"></script>
+    <script defer src="./static/js/index.js?v=20261122-overview"></script>
 </head>
 
 <body>
@@ -59,13 +59,16 @@
             </div>
         </section>
 
-        <section class="section promo-section" aria-label="Promotional video">
+        <section class="section promo-section" aria-label="Overview video">
             <div class="container is-max-widescreen">
-                <!-- TODO: replace with the DemoShift promo video, e.g.
-                <video class="promo-video" src="./static/videos/promo/demoshift-promo.mp4" autoplay playsinline preload="auto" data-promo-video aria-label="DemoShift promotional video"></video>
-                -->
-                <div class="video-shell promo-video-shell promo-placeholder" role="img" aria-label="Promotional video placeholder">
-                    <span>TODO: Add Video here, either slides presentation or Opus Generated artifact is fine I think. zero-wam also use simliar like Opus artifact</span>
+                <div class="video-shell promo-video-shell">
+                    <video class="promo-video" src="./static/videos/promo/demoshift-overview.mp4" autoplay muted loop playsinline preload="auto" data-promo-video aria-label="DemoShift-Bench overview video"></video>
+                    <div class="video-controls promo-video-controls">
+                        <button class="video-play-toggle" type="button" aria-label="Play video"></button>
+                        <span class="video-time video-time-current">0:00</span>
+                        <div class="video-progress" role="slider" tabindex="0" aria-label="DemoShift-Bench overview video progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="video-progress-fill"></div></div>
+                        <span class="video-time video-time-duration">0:00</span>
+                    </div>
                 </div>
             </div>
         </section>
