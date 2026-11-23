@@ -64,8 +64,8 @@ const shiftFilmStages = [
     },
     {
         duration: 15000,
-        title: "When a cross-modal constraint is added",
-        copy: "The video and the text describe different tasks, and the instruction says which modality to follow.",
+        title: "When the video and the text conflict",
+        copy: "We pair the task with a random demonstration from another task (Random Video) or a random instruction from another task (Random Instruction). The prompt tells the policy to ignore the random one.",
     },
 ];
 
