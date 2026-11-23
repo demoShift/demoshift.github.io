@@ -44,28 +44,28 @@ const setupTableOfContents = () => {
 const shiftFilmStages = [
     {
         duration: 11500,
-        title: "Where was the camera?",
-        copy: "The same demonstration, recorded from a top view, a close or distant third-person view, and a moving handheld camera.",
+        title: "The camera rarely matches the robot's view.",
+        copy: "The same demonstration is re-recorded from a top view, a close or distant third-person view, and a moving handheld camera.",
     },
     {
         duration: 11500,
-        title: "What else is in view?",
-        copy: "Extra objects appear in the demonstration, or look-alike objects and instances make the target ambiguous in the scene.",
+        title: "Everyday tables hold more than the target.",
+        copy: "Clutter appears in the demonstration, or other objects and look-alike instances are added to the robot's scene.",
     },
     {
         duration: 20500,
-        title: "How fast should it move?",
-        copy: "The instruction asks for the demonstrated task at 0.5x or 2x the original speed.",
+        title: "Same skill, faster or slower.",
+        copy: "The video stays fixed; the instruction asks for 2x or 0.5x execution speed and states the target duration.",
     },
     {
         duration: 19000,
-        title: "What else does the instruction ask?",
-        copy: "The instruction adds a specification on top of the video: repeat the task, avoid collisions, or use a given arm.",
+        title: "Reuse the clip, add a requirement.",
+        copy: "The video stays fixed; the instruction adds a requirement: repeat the task, do not touch other objects, or use a given arm.",
     },
     {
         duration: 15000,
-        title: "Video or text: which one wins?",
-        copy: "The video and the text instruction disagree, and the prompt says which of the two to ignore.",
+        title: "When video and text disagree.",
+        copy: "The video and the text describe different tasks, and the instruction says which modality to follow.",
     },
 ];
 
