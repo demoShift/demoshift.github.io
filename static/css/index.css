@@ -462,6 +462,15 @@ button:focus-visible,
   aspect-ratio: 16 / 9;
 }
 
+/* distractor panel as three demo / rollout pairs of equal width */
+.shift-panel--distractor:has(.shift-pair) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.shift-panel--distractor .shift-pair .shift-clip--demo {
+  aspect-ratio: 16 / 9;
+}
+
 /* a clip with a short caption underneath */
 .shift-cell {
   display: grid;
