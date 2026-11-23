@@ -367,6 +367,20 @@
                             </a>
                             <figcaption class="failure-figcaption">Labeled failure causes for Zero&#8209;WAM and GPT&#8209;6 Astra <span class="paper-ref">(Appendix A, Figure 6)</span></figcaption>
                         </figure>
+                        <div class="failure-copy">
+                            <p class="section-description">
+                                <strong>Where do policies fail?</strong> The chart above breaks down the failed rollouts of Zero&#8209;WAM and GPT&#8209;6 Astra on the pick-and-place tasks. Each failure is labeled with one of five causes: (a) task done, speed or specification violated, (b) only a distractor handled, (c) distractor touched along with target, (d) grasp failure, and (e) placement failure.
+                            </p>
+                            <p class="section-description">
+                                <strong>Under speed instructions, policies still complete the task about as often as on the reference, but miss the requested speed.</strong> Speed violations make up most failures at 2x and 0.5x speed. The rest are grasp and placement errors. The rest are grasp and placement errors.
+                            </p>
+                            <p class="section-description">
+                                <strong>Zero&#8209;WAM often interacts with distractors, whereas Astra usually targets the right object but misses grasps or placements.</strong> Zero&#8209;WAM touches or moves a distractor in 54% of its Object Ambiguity failures and 83% of its Instance Ambiguity failures. Astra rarely touches a distractor.
+                            </p>
+                            <p class="section-description">
+                                <strong>Both policies often fail Repeat and No Collision, but Astra never uses the wrong arm under the Arm specification.</strong> Under Repeat, many failures complete the task once and stop. Under No Collision, most failures touch a distractor while handling the target.
+                            </p>
+                        </div>
                     </div>
 
                     <section class="robotwin-task-group robotwin-task-group--primary failure-group" aria-labelledby="failure-label-cases">
@@ -376,19 +390,19 @@
                         <div class="robotwin-task-grid failure-grid">
                             <figure class="robotwin-task">
                                 <video src="./static/videos/failure_cases/speed.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Speed failure case video"></video>
-                                <figcaption><span>Speed</span></figcaption>
+                                <figcaption><span>Speed</span><small class="failure-note">Completes the task but misses the requested speed</small></figcaption>
                             </figure>
                             <figure class="robotwin-task">
                                 <video src="./static/videos/failure_cases/object-ambiguity.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Object ambiguity failure case video"></video>
-                                <figcaption><span>Object ambiguity</span></figcaption>
+                                <figcaption><span>Object ambiguity</span><small class="failure-note">Grasps the phone instead of the stamp</small></figcaption>
                             </figure>
                             <figure class="robotwin-task">
                                 <video src="./static/videos/failure_cases/collision.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Collision failure case video"></video>
-                                <figcaption><span>Collision</span></figcaption>
+                                <figcaption><span>Collision</span><small class="failure-note">Knocks a can off the table on the way</small></figcaption>
                             </figure>
                             <figure class="robotwin-task">
                                 <video src="./static/videos/failure_cases/wrong-arm.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Wrong arm failure case video"></video>
-                                <figcaption><span>Wrong arm</span></figcaption>
+                                <figcaption><span>Wrong arm</span><small class="failure-note">Uses the left arm when asked to use the right arm</small></figcaption>
                             </figure>
                             <figure class="robotwin-task">
                                 <video src="./static/videos/failure_cases/ignore-video.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Ignore video failure case video"></video>

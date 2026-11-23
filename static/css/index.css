@@ -939,6 +939,10 @@ button:focus-visible,
   margin-bottom: 0;
 }
 
+.failure-copy .section-description + .section-description {
+  margin-top: 0.75rem;
+}
+
 .failure-figure {
   min-width: 0;
   margin: 0;
@@ -1670,4 +1674,13 @@ button:focus-visible,
   .bench-table {
     font-size: 0.9rem;
   }
+}
+
+.failure-grid .robotwin-task figcaption .failure-note {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--muted-ink);
 }
