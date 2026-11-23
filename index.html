@@ -173,11 +173,11 @@
                 <h2 class="section-heading">Main Findings. <span class="paper-ref">(Section 4)</span></h2>
                 <div class="motivation-panel">
                     <p>
-                        Evaluating both ICL policies and frontier agentic vision-language model (VLM) policies on DemoShift-Bench reveals an average success drop of 12&ndash;14 percentage points under shifts and exposes three key limitations.
+                        Evaluating both VLA/WAM policies and frontier agentic vision-language model (VLM) policies on DemoShift-Bench reveals an average success drop of 12&ndash;14 percentage points under shifts and exposes three key limitations.
                     </p>
                     <ul class="contribution-list">
                         <li>First, earlier video-conditioned vision-language-action (VLA) policies rely mainly on text instructions rather than on human demonstration videos. <span class="paper-ref">(Section 4.2)</span></li>
-                        <li>Second, current ICL policies that do use the video still fail to reproduce demonstrated actions precisely, resolve object and instance ambiguity, or follow added specifications and cross-modal overrides. <span class="paper-ref">(Section 4.3)</span></li>
+                        <li>Second, current VLA/WAM policies that do use the video still fail to reproduce demonstrated actions precisely, resolve object and instance ambiguity, or follow added specifications and cross-modal overrides. <span class="paper-ref">(Section 4.3)</span></li>
                         <li>Third, frontier agentic VLM policies handle visual shifts, arm selection, and cross-modal conflicts far more reliably, yet they still fail to repeat tasks, avoid collisions, or adjust execution speed, and they incur high token costs. <span class="paper-ref">(Section 4.4)</span></li>
                     </ul>
                 </div>
@@ -189,7 +189,7 @@
                 <h2 class="section-heading">Performance Drop under Different Axes. <span class="paper-ref">(Section 4.1, Table 4)</span></h2>
                 <div class="bench-toolbar">
                     <div class="result-legend bench-legend" aria-label="Chart legend">
-                        <span class="bench-legend-family">ICL policies</span>
+                        <span class="bench-legend-family">VLA/WAM policies</span>
                         <span><i class="legend-swatch bench-swatch-m1"></i>Zero&#8209;WAM</span>
                         <span><i class="legend-swatch bench-swatch-m2"></i>WorldScape+Caption</span>
                         <span class="bench-legend-family">Agentic VLM policies</span>
@@ -221,7 +221,7 @@
                         <thead>
                             <tr class="bench-group-row">
                                 <th colspan="2"></th>
-                                <th colspan="2" scope="colgroup">ICL policies</th>
+                                <th colspan="2" scope="colgroup">VLA/WAM policies</th>
                                 <th colspan="2" scope="colgroup">Agentic VLM policies</th>
                             </tr>
                             <tr>
