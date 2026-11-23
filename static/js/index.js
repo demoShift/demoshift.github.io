@@ -54,8 +54,18 @@ const shiftFilmStages = [
     },
     {
         duration: 20500,
-        title: "What does the instruction ask?",
-        copy: "The instruction changes the speed (2x or 0.5x), adds a constraint (repeat the task, avoid collisions, use a given arm), or contradicts the video.",
+        title: "How fast should it move?",
+        copy: "The instruction asks for the demonstrated task at 0.5x or 2x the original speed.",
+    },
+    {
+        duration: 19000,
+        title: "What else does the instruction ask?",
+        copy: "The instruction adds a specification on top of the video: repeat the task, avoid collisions, or use a given arm.",
+    },
+    {
+        duration: 15000,
+        title: "Video or text: which one wins?",
+        copy: "The video and the text instruction disagree, and the prompt says which of the two to ignore.",
     },
 ];
 

@@ -332,7 +332,7 @@ button:focus-visible,
 
 .icl-film-chapters {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0.4rem;
   padding-bottom: 0.8rem;
   border-bottom: 1px solid rgba(24, 24, 24, 0.1);
@@ -462,13 +462,80 @@ button:focus-visible,
   aspect-ratio: 16 / 9;
 }
 
-.shift-panel--constraint {
+/* 0.5x, 1x and 2x side by side */
+.shift-panel--speed {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   width: 100%;
 }
 
+.shift-panel--speed .shift-clip,
 .shift-panel--constraint .shift-clip {
   aspect-ratio: 4 / 3;
+}
+
+/* one success / failure pair per row */
+.shift-panel--constraint {
+  grid-template-columns: minmax(0, 36rem);
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.shift-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  min-width: 0;
+}
+
+/* one conflict case per row: human demo, robot rollout, then the prompt;
+   clip widths follow aspect ratio so both share one height */
+.shift-panel--conflict {
+  grid-template-columns: minmax(0, 56rem);
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.shift-conflict-row {
+  display: grid;
+  grid-template-columns: minmax(0, 16fr) minmax(0, 12fr) minmax(0, 14fr);
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.shift-conflict-row .shift-clip {
+  aspect-ratio: 4 / 3;
+}
+
+.shift-conflict-row .shift-clip--demo {
+  aspect-ratio: 16 / 9;
+}
+
+.shift-conflict-row .shift-prompt {
+  margin: 0 0 0 1rem;
+}
+
+.shift-clip-note {
+  margin-left: 0.3rem;
+  color: var(--muted-ink);
+  font-weight: 400;
+}
+
+.shift-prompt {
+  margin: 0.45rem 0 0;
+  color: var(--muted-ink);
+  font-size: 0.74rem;
+  line-height: 1.45;
+}
+
+.shift-prompt-label {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--ink);
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.64rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .shift-clip {
@@ -859,9 +926,8 @@ button:focus-visible,
 
 .failure-overview {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
@@ -982,9 +1048,12 @@ button:focus-visible,
 
   
 
-  .why-fail-layout,
-  .failure-overview {
+  .why-fail-layout {
     grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .failure-overview {
     gap: 1.25rem;
   }
 
@@ -1058,7 +1127,7 @@ button:focus-visible,
   }
 
   .icl-film-chapter {
-    flex: 0 0 9.75rem;
+    flex: 0 0 7rem;
     scroll-snap-align: start;
   }
 
@@ -1098,11 +1167,33 @@ button:focus-visible,
   }
 
   .shift-panel--constraint {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
   }
 
-  .shift-panel--constraint .shift-clip:first-child {
-    grid-column: span 2;
+  .shift-conflict-row {
+    grid-template-columns: minmax(0, 16fr) minmax(0, 12fr);
+  }
+
+  .shift-conflict-row .shift-prompt {
+    grid-column: 1 / -1;
+    margin: 0.3rem 0 0;
+  }
+
+  .shift-prompt {
+    font-size: 0.68rem;
+  }
+
+  /* too narrow for the role label next to the model / outcome tags */
+  .shift-pair .shift-clip-role,
+  .shift-conflict-row .shift-clip:not(.shift-clip--demo) .shift-clip-role {
+    display: none;
+  }
+
+  .shift-pair .shift-clip-tags,
+  .shift-conflict-row .shift-clip-tags {
+    right: auto;
+    left: 0.6rem;
   }
 
   .shift-clip-role,

@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./static/css/bulma.min.css">
     <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="./static/css/index.css?v=20261122-paperref">
+    <link rel="stylesheet" href="./static/css/index.css?v=20261122-rows">
     <link rel="icon" type="image/svg+xml" href="./static/images/favicon.svg">
-    <script defer src="./static/js/index.js?v=20261120-howfail"></script>
+    <script defer src="./static/js/index.js?v=20261122-rows"></script>
 </head>
 
 <body>
@@ -29,8 +29,7 @@
         <a class="toc-link" href="#demo-shifts">Demonstration<br>Shifts.</a>
         <a class="toc-link" href="#findings">Main Findings.</a>
         <a class="toc-link" href="#benchmark">Performance<br>Drop.</a>
-        <a class="toc-link" href="#how-they-fail">How They<br>Fail.</a>
-        <a class="toc-link" href="#failure-cases">Failure Cases.</a>
+        <a class="toc-link" href="#failure-cases">Failure Cases<br>Analysis.</a>
     </aside>
 
     <main id="top">
@@ -86,8 +85,14 @@
                         <button class="icl-film-chapter" type="button" role="tab" id="shift-tab-distractor" aria-controls="shift-panel-distractor" aria-selected="false" data-film-stage="1">
                             <span>Distractor</span>
                         </button>
-                        <button class="icl-film-chapter" type="button" role="tab" id="shift-tab-constraint" aria-controls="shift-panel-constraint" aria-selected="false" data-film-stage="2">
-                            <span>Speed, Constraint &amp; Conflict</span>
+                        <button class="icl-film-chapter" type="button" role="tab" id="shift-tab-speed" aria-controls="shift-panel-speed" aria-selected="false" data-film-stage="2">
+                            <span>Speed</span>
+                        </button>
+                        <button class="icl-film-chapter" type="button" role="tab" id="shift-tab-constraint" aria-controls="shift-panel-constraint" aria-selected="false" data-film-stage="3">
+                            <span>Constraint</span>
+                        </button>
+                        <button class="icl-film-chapter" type="button" role="tab" id="shift-tab-conflict" aria-controls="shift-panel-conflict" aria-selected="false" data-film-stage="4">
+                            <span>Conflict</span>
                         </button>
                     </div>
 
@@ -109,10 +114,32 @@
                             <figure class="shift-clip"><video src="./static/videos/demo_shifts/distractor-object-ambiguity.mp4" muted loop playsinline preload="metadata" aria-label="Robot rollout with similar objects in the scene"></video><span class="shift-clip-role">Robot rollout</span><figcaption>Object Ambiguity</figcaption></figure>
                             <figure class="shift-clip"><video src="./static/videos/demo_shifts/distractor-instance-ambiguity.mp4" muted loop playsinline preload="metadata" data-playback-rate="3" aria-label="Robot rollout with several instances of the target object"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">3&times; playback</span></span><figcaption>Instance Ambiguity</figcaption></figure>
                         </div>
-                        <div class="shift-panel shift-panel--constraint" id="shift-panel-constraint" role="tabpanel" aria-labelledby="shift-tab-constraint" data-film-panel="2" aria-hidden="true">
-                            <figure class="shift-clip"><video src="./static/videos/demo_shifts/speed-2x-zerowam.mp4" muted loop playsinline preload="metadata" aria-label="Zero-WAM rollout instructed to execute at twice the demonstrated speed"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span></span><figcaption>2x Speed Instruction</figcaption></figure>
-                            <figure class="shift-clip"><video src="./static/videos/demo_shifts/constraint-repeat-astra.mp4" muted loop playsinline preload="metadata" aria-label="GPT-6 Astra rollout that repeats the task, succeeding"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">GPT&#8209;6 Astra</span><span class="shift-clip-tag">Success</span></span><figcaption>Repeat</figcaption></figure>
-                            <figure class="shift-clip"><video src="./static/videos/demo_shifts/constraint-nocollision-zerowam.mp4" muted loop playsinline preload="metadata" aria-label="Zero-WAM rollout asked to avoid collisions, failing"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span><span class="shift-clip-tag">Failure</span></span><figcaption>No Collision</figcaption></figure>
+                        <div class="shift-panel shift-panel--speed" id="shift-panel-speed" role="tabpanel" aria-labelledby="shift-tab-speed" data-film-panel="2" aria-hidden="true">
+                            <figure class="shift-clip"><video src="./static/videos/demo_shifts/speed-0.5x-astra.mp4" muted loop playsinline preload="metadata" aria-label="GPT-6 Astra rollout instructed to execute at half the demonstrated speed"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">GPT&#8209;6 Astra</span></span><figcaption>0.5x Speed</figcaption></figure>
+                            <figure class="shift-clip"><video src="./static/videos/demo_shifts/speed-1x-astra.mp4" muted loop playsinline preload="metadata" aria-label="GPT-6 Astra rollout at the demonstrated speed"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">GPT&#8209;6 Astra</span></span><figcaption>1x Speed (Original)</figcaption></figure>
+                            <figure class="shift-clip"><video src="./static/videos/demo_shifts/speed-2x-astra.mp4" muted loop playsinline preload="metadata" aria-label="GPT-6 Astra rollout instructed to execute at twice the demonstrated speed"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">GPT&#8209;6 Astra</span></span><figcaption>2x Speed</figcaption></figure>
+                        </div>
+                        <div class="shift-panel shift-panel--constraint" id="shift-panel-constraint" role="tabpanel" aria-labelledby="shift-tab-constraint" data-film-panel="3" aria-hidden="true">
+                            <div class="shift-pair">
+                                <figure class="shift-clip"><video src="./static/videos/demo_shifts/constraint-repeat-success-astra.mp4" muted loop playsinline preload="metadata" aria-label="GPT-6 Astra rollout asked to repeat the task, succeeding"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">GPT&#8209;6 Astra</span><span class="shift-clip-tag">Success</span></span><figcaption>Repeat</figcaption></figure>
+                                <figure class="shift-clip"><video src="./static/videos/demo_shifts/constraint-repeat-failure-astra.mp4" muted loop playsinline preload="metadata" aria-label="GPT-6 Astra rollout asked to repeat the task, failing"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">GPT&#8209;6 Astra</span><span class="shift-clip-tag">Failure</span></span><figcaption>Repeat</figcaption></figure>
+                            </div>
+                            <div class="shift-pair">
+                                <figure class="shift-clip"><video src="./static/videos/demo_shifts/constraint-nocollision-success-astra.mp4" muted loop playsinline preload="metadata" aria-label="GPT-6 Astra rollout asked to avoid collisions, succeeding"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">GPT&#8209;6 Astra</span><span class="shift-clip-tag">Success</span></span><figcaption>No Collision</figcaption></figure>
+                                <figure class="shift-clip"><video src="./static/videos/demo_shifts/constraint-nocollision-failure-zerowam.mp4" muted loop playsinline preload="metadata" aria-label="Zero-WAM rollout asked to avoid collisions, failing"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span><span class="shift-clip-tag">Failure</span></span><figcaption>No Collision</figcaption></figure>
+                            </div>
+                        </div>
+                        <div class="shift-panel shift-panel--conflict" id="shift-panel-conflict" role="tabpanel" aria-labelledby="shift-tab-conflict" data-film-panel="4" aria-hidden="true">
+                            <div class="shift-conflict-row">
+                                <figure class="shift-clip shift-clip--demo"><video src="./static/videos/demo_shifts/conflict-blocks-original.mp4" muted loop playsinline preload="metadata" aria-label="Human demonstration of stacking blocks"></video><span class="shift-clip-role">Human demo</span><figcaption>Demonstration</figcaption></figure>
+                                <figure class="shift-clip"><video src="./static/videos/demo_shifts/conflict-ignoretext-astra.mp4" muted loop playsinline preload="metadata" data-playback-rate="2" aria-label="GPT-6 Astra rollout that ignores the text instruction and follows the video, succeeding"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">GPT&#8209;6 Astra</span><span class="shift-clip-tag">Success</span></span><figcaption>Ignore Text <span class="shift-clip-note">2&times; playback</span></figcaption></figure>
+                                <p class="shift-prompt"><span class="shift-prompt-label">Text prompt</span>Ignore the following text instruction and follow the video demonstration: &ldquo;Open the microwave door with one hand.&rdquo;</p>
+                            </div>
+                            <div class="shift-conflict-row">
+                                <figure class="shift-clip shift-clip--demo"><video src="./static/videos/demo_shifts/conflict-seal-original.mp4" muted loop playsinline preload="metadata" aria-label="Human demonstration of stamping with a seal"></video><span class="shift-clip-role">Human demo</span><figcaption>Demonstration</figcaption></figure>
+                                <figure class="shift-clip"><video src="./static/videos/demo_shifts/conflict-ignorevideo-zerowam.mp4" muted loop playsinline preload="metadata" data-playback-rate="2" aria-label="Zero-WAM rollout under a video and text conflict, failing"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span><span class="shift-clip-tag">Failure</span></span><figcaption>Ignore Video <span class="shift-clip-note">2&times; playback</span></figcaption></figure>
+                                <p class="shift-prompt"><span class="shift-prompt-label">Text prompt</span>Ignore the video. Pick up the gray block and place it on the teal mat.</p>
+                            </div>
                         </div>
                     </div>
 
@@ -339,40 +366,36 @@
             </div>
         </section>
 
-        <section class="section why-fail-section" id="how-they-fail">
-            <div class="container is-max-widescreen">
-                <h2 class="section-heading">How They Fail: Policies Follow Neither Demonstrated Details Nor Instructions. <span class="paper-ref">(Section 4.5)</span></h2>
-                <div class="why-fail-layout">
-                    <div class="why-fail-copy">
-                        <p class="section-description">
-                            <strong>Policies do not use the affordance the demonstration shows.</strong> Even when a rollout succeeds, it often ignores how the human interacts with the object. In the open-microwave task on the right, the demonstrator grasps the handle and pulls the door; Zero&#8209;WAM instead hooks its gripper over the top edge of the door and drags it open. <span class="paper-ref">(Section 4.5, Figure 5)</span>
-                        </p>
-                    </div>
-                    <div class="why-fail-clips">
-                        <figure class="shift-clip why-fail-clip why-fail-clip--wide">
-                            <video src="./static/videos/why_failure/microwave-original.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Human demonstration opening the microwave by its handle"></video>
-                            <span class="shift-clip-role">Human demo</span>
-                            <figcaption>Original</figcaption>
-                        </figure>
-                        <figure class="shift-clip why-fail-clip">
-                            <video src="./static/videos/why_failure/microwave-zerowam-nohandle.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Zero-WAM rollout opening the microwave without using the handle"></video>
-                            <span class="shift-clip-role">Robot rollout</span>
-                            <span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span></span>
-                            <figcaption>No handle</figcaption>
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="section robotwin-section failure-section" id="failure-cases">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">Failure Cases Visualization. <span class="paper-ref">(Section 4.5, Appendix A)</span></h2>
+                <h2 class="section-heading">Failure Cases Analysis. <span class="paper-ref">(Section 4.5, Appendix A)</span></h2>
+
+                <div class="robotwin-subsection" id="how-they-fail">
+                    <div class="why-fail-layout">
+                        <div class="why-fail-copy">
+                            <p class="section-description">
+                                <strong>Policies do not use the affordance the demonstration shows.</strong> Even when a rollout succeeds, it often ignores how the human interacts with the object. In the open-microwave task on the right, the demonstrator grasps the handle and pulls the door; Zero&#8209;WAM instead hooks its gripper over the top edge of the door and drags it open. <span class="paper-ref">(Section 4.5, Figure 5)</span>
+                            </p>
+                        </div>
+                        <div class="why-fail-clips">
+                            <figure class="shift-clip why-fail-clip why-fail-clip--wide">
+                                <video src="./static/videos/why_failure/microwave-original.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Human demonstration opening the microwave by its handle"></video>
+                                <span class="shift-clip-role">Human demo</span>
+                                <figcaption>Original</figcaption>
+                            </figure>
+                            <figure class="shift-clip why-fail-clip">
+                                <video src="./static/videos/why_failure/microwave-zerowam-nohandle.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Zero-WAM rollout opening the microwave without using the handle"></video>
+                                <span class="shift-clip-role">Robot rollout</span>
+                                <span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span></span>
+                                <figcaption>No handle</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="robotwin-subsection">
                     <div class="failure-overview">
                         <div class="failure-copy">
-                            <h3 class="robotwin-subheading">How Policies Fail.</h3>
                             <p class="section-description">
                                 <strong>Target confusion and ignored requests cause failures.</strong> With distractors added to the scene (<em>Object ambiguity</em>), the robot grasps the phone instead of the stamp: it knows to pick something up, but not which object the demonstration specifies, consistent with the 6.2&ndash;9.0 percentage-point drop under Object Ambiguity. Told not to touch other objects (<em>Collision</em>), the robot places the cup on the coaster but knocks the can off the table on the way, executing what the demonstration shows and ignoring the added specification. <span class="paper-ref">(Section 4.5, Figure 4)</span>
                             </p>
