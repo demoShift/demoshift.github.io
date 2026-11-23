@@ -50,7 +50,7 @@ const shiftFilmStages = [
     {
         duration: 11500,
         title: "When ambiguity arises",
-        copy: "Clutter appears in the demonstration, or other objects and look-alike instances are added to the robot's scene.",
+        copy: "Distractors appear in the demonstration, or other objects and look-alike instances are added to the robot's scene.",
     },
     {
         duration: 20500,
