@@ -44,27 +44,27 @@ const setupTableOfContents = () => {
 const shiftFilmStages = [
     {
         duration: 11500,
-        title: "The camera rarely matches the robot's view.",
+        title: "When viewpoint's not perfectly aligned",
         copy: "The same demonstration is re-recorded from a top view, a close or distant third-person view, and a moving handheld camera.",
     },
     {
         duration: 11500,
-        title: "Everyday tables hold more than the target.",
+        title: "When ambiguity arises",
         copy: "Clutter appears in the demonstration, or other objects and look-alike instances are added to the robot's scene.",
     },
     {
         duration: 20500,
-        title: "Same skill, faster or slower.",
+        title: "When execution speed is constrained",
         copy: "The video stays fixed; the instruction asks for 2x or 0.5x execution speed and states the target duration.",
     },
     {
         duration: 19000,
-        title: "Reuse the clip, add a requirement.",
+        title: "When a task constraint is requested",
         copy: "The video stays fixed; the instruction adds a requirement: repeat the task, do not touch other objects, or use a given arm.",
     },
     {
         duration: 15000,
-        title: "When video and text disagree.",
+        title: "When a cross-modal constraint is added",
         copy: "The video and the text describe different tasks, and the instruction says which modality to follow.",
     },
 ];
