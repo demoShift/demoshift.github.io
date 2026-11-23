@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./static/css/bulma.min.css">
     <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="./static/css/index.css?v=20261123-distractor">
+    <link rel="stylesheet" href="./static/css/index.css?v=20261123-nolabels">
     <link rel="icon" type="image/svg+xml" href="./static/images/favicon.svg">
-    <script defer src="./static/js/index.js?v=20261123-distractor"></script>
+    <script defer src="./static/js/index.js?v=20261123-nolabels"></script>
 </head>
 
 <body>
@@ -131,21 +131,22 @@
                                 <figure class="shift-clip"><video src="./static/videos/demo_shifts/constraint-nocollision-failure-zerowam.mp4" muted loop playsinline preload="metadata" aria-label="Zero-WAM rollout asked to avoid collisions, failing"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span><span class="shift-clip-tag">Failure</span></span><figcaption>No Collision</figcaption></figure>
                                 <p class="shift-prompt"><span class="shift-prompt-label">Demonstration video + text prompt</span>&ldquo;Do not touch the other objects on the table.&rdquo;</p>
                             </div>
-                            <div class="shift-pair">
+                            <div class="shift-pair shift-pair--arm">
                                 <figure class="shift-clip"><video src="./static/videos/demo_shifts/constraint-arm-success-zerowam.mp4" muted loop playsinline preload="metadata" aria-label="Zero-WAM rollout told which arm to use, using the requested arm"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span><span class="shift-clip-tag">Success</span></span><figcaption>Arm Specification</figcaption></figure>
                                 <figure class="shift-clip"><video src="./static/videos/demo_shifts/constraint-arm-failure-zerowam.mp4" muted loop playsinline preload="metadata" aria-label="Zero-WAM rollout told which arm to use, using the wrong arm"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span><span class="shift-clip-tag">Failure</span></span><figcaption>Arm Specification</figcaption></figure>
+                                <figure class="shift-clip shift-clip--both"><video src="./static/videos/demo_shifts/constraint-arm-both-success-zerowam.mp4" muted loop playsinline preload="metadata" aria-label="Zero-WAM rollout told to use both arms, succeeding"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span><span class="shift-clip-tag">Success</span></span><figcaption>Both Arms</figcaption></figure>
                                 <p class="shift-prompt"><span class="shift-prompt-label">Demonstration video + text prompt</span>&ldquo;Use the left arm.&rdquo; / &ldquo;Use the right arm.&rdquo; / &ldquo;Use both arms.&rdquo;</p>
                             </div>
                         </div>
                         <div class="shift-panel shift-panel--conflict" id="shift-panel-conflict" role="tabpanel" aria-labelledby="shift-tab-conflict" data-film-panel="4" aria-hidden="true">
                             <div class="shift-conflict-row">
                                 <figure class="shift-clip shift-clip--demo"><video src="./static/videos/demo_shifts/conflict-blocks-original.mp4" muted loop playsinline preload="metadata" aria-label="Human demonstration of stacking blocks"></video><span class="shift-clip-role">Human demo</span><figcaption>Demonstration</figcaption></figure>
-                                <figure class="shift-clip"><video src="./static/videos/demo_shifts/conflict-ignoretext-astra.mp4" muted loop playsinline preload="metadata" data-playback-rate="2" aria-label="GPT-6 Astra rollout that ignores the text instruction and follows the video, succeeding"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">GPT&#8209;6 Astra</span><span class="shift-clip-tag">Success</span></span><figcaption>Random Instruction <span class="shift-clip-note">2&times; playback</span></figcaption></figure>
+                                <figure class="shift-clip"><video src="./static/videos/demo_shifts/conflict-ignoretext-astra.mp4" muted loop playsinline preload="metadata" data-playback-rate="2" aria-label="GPT-6 Astra rollout that ignores the text instruction and follows the video, succeeding"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">GPT&#8209;6 Astra</span><span class="shift-clip-tag">Success</span></span><figcaption>Random Instruction</figcaption></figure>
                                 <p class="shift-prompt"><span class="shift-prompt-label">Text prompt</span>Ignore the following text instruction and follow the video demonstration: &ldquo;Open the microwave door with one hand.&rdquo;</p>
                             </div>
                             <div class="shift-conflict-row">
                                 <figure class="shift-clip shift-clip--demo"><video src="./static/videos/demo_shifts/conflict-seal-original.mp4" muted loop playsinline preload="metadata" aria-label="Human demonstration of stamping with a seal"></video><span class="shift-clip-role">Human demo</span><figcaption>Demonstration</figcaption></figure>
-                                <figure class="shift-clip"><video src="./static/videos/demo_shifts/conflict-ignorevideo-zerowam.mp4" muted loop playsinline preload="metadata" data-playback-rate="2" aria-label="Zero-WAM rollout under a video and text conflict, failing"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span><span class="shift-clip-tag">Failure</span></span><figcaption>Random Video <span class="shift-clip-note">2&times; playback</span></figcaption></figure>
+                                <figure class="shift-clip"><video src="./static/videos/demo_shifts/conflict-ignorevideo-zerowam.mp4" muted loop playsinline preload="metadata" data-playback-rate="2" aria-label="Zero-WAM rollout under a video and text conflict, failing"></video><span class="shift-clip-role">Robot rollout</span><span class="shift-clip-tags"><span class="shift-clip-tag">Zero&#8209;WAM</span><span class="shift-clip-tag">Failure</span></span><figcaption>Random Video</figcaption></figure>
                                 <p class="shift-prompt"><span class="shift-prompt-label">Text prompt</span>Ignore the video. Pick up the gray block and place it on the teal mat.</p>
                             </div>
                         </div>
@@ -388,16 +389,16 @@
                         </figure>
                         <div class="failure-copy">
                             <p class="section-description">
-                                <strong>Where do policies fail?</strong> The chart above breaks down the failed rollouts of Zero&#8209;WAM and GPT&#8209;6 Astra on the pick-and-place tasks. Each failure is labeled with one of five causes: (a) task done, speed or specification violated, (b) only a distractor handled, (c) distractor touched along with target, (d) grasp failure, and (e) placement failure.
+                                <strong>Where do policies fail?</strong> The chart above breaks down the failed rollouts of Zero&#8209;WAM and GPT&#8209;6 Astra on the pick-and-place tasks. Each failure is labeled with one of five causes: (a) task done, speed or specification violated, (b) only a distractor handled, (c) distractor touched along with target, (d) grasp failure, and (e) placement failure. The clips below show one example per shift; the last is a video&ndash;text conflict case, which the chart does not cover<sup class="failure-ref"><a href="#failure-clip-5" aria-label="Failure example 5">[5]</a></sup>.
                             </p>
                             <p class="section-description">
-                                <strong>Under speed instructions, policies still complete the task about as often as on the reference, but miss the requested speed.</strong> Speed violations make up most failures at 2x and 0.5x speed. The rest are grasp and placement errors. The rest are grasp and placement errors.
+                                <strong>Under speed instructions, policies still complete the task about as often as on the reference, but miss the requested speed.</strong> Speed violations make up most failures at 2x and 0.5x speed<sup class="failure-ref"><a href="#failure-clip-1" aria-label="Failure example 1">[1]</a></sup>. The rest are grasp and placement errors.
                             </p>
                             <p class="section-description">
-                                <strong>Zero&#8209;WAM often interacts with distractors, whereas Astra usually targets the right object but misses grasps or placements.</strong> Zero&#8209;WAM touches or moves a distractor in 54% of its Object Ambiguity failures and 83% of its Instance Ambiguity failures. Astra rarely touches a distractor.
+                                <strong>Zero&#8209;WAM often interacts with distractors, whereas Astra usually targets the right object but misses grasps or placements.</strong> Zero&#8209;WAM touches or moves a distractor in 54% of its Object Ambiguity failures and 83% of its Instance Ambiguity failures. With distractors in the scene, the robot grasps the phone instead of the stamp<sup class="failure-ref"><a href="#failure-clip-2" aria-label="Failure example 2">[2]</a></sup>: it knows to pick something up, but not which object the demonstration specifies, consistent with the 6.2&ndash;9.0 percentage-point drop under Object Ambiguity. Astra rarely touches a distractor.
                             </p>
                             <p class="section-description">
-                                <strong>Both policies often fail Repeat and No Collision, but Astra never uses the wrong arm under the Arm specification.</strong> Under Repeat, many failures complete the task once and stop. Under No Collision, most failures touch a distractor while handling the target.
+                                <strong>Both policies often fail Repeat and No Collision, but Astra never uses the wrong arm under the Arm specification.</strong> Under Repeat, many failures complete the task once and stop. Under No Collision, most failures touch a distractor while handling the target: the robot places the cup on the coaster but knocks the can off the table on the way<sup class="failure-ref"><a href="#failure-clip-3" aria-label="Failure example 3">[3]</a></sup>, executing what the demonstration shows and ignoring the added specification. In the wrong-arm example, the robot uses the left arm when asked to use the right<sup class="failure-ref"><a href="#failure-clip-4" aria-label="Failure example 4">[4]</a></sup>. <span class="paper-ref">(Section 4.5, Figure 4)</span>
                             </p>
                         </div>
                     </div>
@@ -407,25 +408,25 @@
                             <h4 id="failure-label-cases">Failure<br>Examples<br><span class="paper-ref">(Section 4.5, Appendix A)</span></h4>
                         </div>
                         <div class="robotwin-task-grid failure-grid">
-                            <figure class="robotwin-task">
+                            <figure class="robotwin-task" id="failure-clip-1">
                                 <video src="./static/videos/failure_cases/speed.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Speed failure case video"></video>
-                                <figcaption><span>Speed</span><small class="failure-note">Completes the task but misses the requested speed</small></figcaption>
+                                <figcaption><span><span class="failure-num">[1]</span>Speed</span><small class="failure-note">Completes the task but misses the requested speed</small></figcaption>
                             </figure>
-                            <figure class="robotwin-task">
+                            <figure class="robotwin-task" id="failure-clip-2">
                                 <video src="./static/videos/failure_cases/object-ambiguity.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Object ambiguity failure case video"></video>
-                                <figcaption><span>Object ambiguity</span><small class="failure-note">Grasps the phone instead of the stamp</small></figcaption>
+                                <figcaption><span><span class="failure-num">[2]</span>Object ambiguity</span><small class="failure-note">Grasps the phone instead of the stamp</small></figcaption>
                             </figure>
-                            <figure class="robotwin-task">
+                            <figure class="robotwin-task" id="failure-clip-3">
                                 <video src="./static/videos/failure_cases/collision.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Collision failure case video"></video>
-                                <figcaption><span>Collision</span><small class="failure-note">Knocks a can off the table on the way</small></figcaption>
+                                <figcaption><span><span class="failure-num">[3]</span>Collision</span><small class="failure-note">Knocks a can off the table on the way</small></figcaption>
                             </figure>
-                            <figure class="robotwin-task">
+                            <figure class="robotwin-task" id="failure-clip-4">
                                 <video src="./static/videos/failure_cases/wrong-arm.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Wrong arm failure case video"></video>
-                                <figcaption><span>Wrong arm</span><small class="failure-note">Uses the left arm when asked to use the right arm</small></figcaption>
+                                <figcaption><span><span class="failure-num">[4]</span>Wrong arm</span><small class="failure-note">Uses the left arm when asked to use the right arm</small></figcaption>
                             </figure>
-                            <figure class="robotwin-task">
+                            <figure class="robotwin-task" id="failure-clip-5">
                                 <video src="./static/videos/failure_cases/ignore-video.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Ignore video failure case video"></video>
-                                <figcaption><span>Ignore video</span><small class="failure-note">Fails to place the bread with a microwave video</small></figcaption>
+                                <figcaption><span><span class="failure-num">[5]</span>Ignore video</span><small class="failure-note">Fails to place the bread with a microwave video</small></figcaption>
                             </figure>
                         </div>
                     </section>
@@ -435,7 +436,7 @@
                     <div class="why-fail-layout">
                         <div class="why-fail-copy">
                             <p class="section-description">
-                                <strong>Policies do not use the affordance the demonstration shows.</strong> Even when a rollout succeeds, it often ignores how the human interacts with the object. In the open-microwave task on the right, the demonstrator grasps the handle and pulls the door; Zero&#8209;WAM instead hooks its gripper over the top edge of the door and drags it open. <span class="paper-ref">(Section 4.5, Figure 5)</span>
+                                <strong>Policies do not use the affordance the demonstration shows.</strong> Addtionally, even when a rollout succeeds, it often ignores how the human interacts with the object. In the open-microwave task on the right, the demonstrator grasps the handle and pulls the door; Zero&#8209;WAM instead hooks its gripper over the top edge of the door and drags it open. <span class="paper-ref">(Section 4.5, Figure 5)</span>
                             </p>
                         </div>
                         <div class="why-fail-clips">
@@ -454,13 +455,6 @@
                     </div>
                 </div>
 
-                <div class="robotwin-subsection">
-                    <div class="failure-copy">
-                        <p class="section-description">
-                            <strong>Target confusion and ignored requests cause failures.</strong> With distractors added to the scene (<em>Object ambiguity</em>), the robot grasps the phone instead of the stamp: it knows to pick something up, but not which object the demonstration specifies, consistent with the 6.2&ndash;9.0 percentage-point drop under Object Ambiguity. Told not to touch other objects (<em>Collision</em>), the robot places the cup on the coaster but knocks the can off the table on the way, executing what the demonstration shows and ignoring the added specification. <span class="paper-ref">(Section 4.5, Figure 4)</span>
-                        </p>
-                    </div>
-                </div>
 
             </div>
         </section>

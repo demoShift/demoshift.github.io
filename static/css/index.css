@@ -491,7 +491,7 @@ button:focus-visible,
 
 /* one requirement per column: success, failure, then the prompt */
 .shift-panel--constraint {
-  grid-template-columns: repeat(3, minmax(0, 18rem));
+  grid-template-columns: repeat(4, minmax(0, 18rem));
   gap: 1rem;
   width: 100%;
 }
@@ -502,6 +502,28 @@ button:focus-visible,
   align-content: start;
   gap: 4px;
   min-width: 0;
+}
+
+/* arm specification: success / failure stacked, the both-arms clip centred
+   beside them, one shared prompt underneath */
+.shift-pair--arm {
+  grid-column: span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1rem;
+}
+
+.shift-pair--arm .shift-clip {
+  grid-column: 1;
+}
+
+.shift-pair--arm .shift-clip--both {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+
+.shift-pair--arm .shift-prompt {
+  grid-column: 1 / -1;
 }
 
 /* one conflict case per row: human demo, robot rollout, then the prompt;
@@ -1200,6 +1222,22 @@ button:focus-visible,
     grid-column: 1 / -1;
   }
 
+  .shift-pair--arm {
+    grid-column: auto;
+    column-gap: 4px;
+  }
+
+  .shift-pair--arm .shift-clip {
+    grid-column: auto;
+  }
+
+  .shift-pair--arm .shift-clip--both {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    justify-self: center;
+    width: calc(50% - 2px);
+  }
+
   .shift-conflict-row {
     grid-template-columns: minmax(0, 16fr) minmax(0, 12fr);
   }
@@ -1708,4 +1746,30 @@ button:focus-visible,
   font-weight: 400;
   line-height: 1.35;
   color: var(--muted-ink);
+}
+
+/* numbered failure clips and the references to them in the text */
+.failure-num {
+  margin-right: 0.35rem;
+  color: var(--muted-ink);
+  font-weight: 400;
+}
+
+.failure-ref {
+  font-size: 0.72em;
+  line-height: 0;
+}
+
+.failure-ref a {
+  color: var(--muted-ink);
+  text-decoration: none;
+}
+
+.failure-ref a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.failure-grid .robotwin-task {
+  scroll-margin-top: 6rem;
 }
