@@ -59,20 +59,6 @@
             </div>
         </section>
 
-        <section class="section promo-section" aria-label="Overview video">
-            <div class="container is-max-widescreen">
-                <div class="video-shell promo-video-shell">
-                    <video class="promo-video" src="./static/videos/promo/demoshift-overview.mp4" autoplay muted loop playsinline preload="auto" data-promo-video aria-label="DemoShift-Bench overview video"></video>
-                    <div class="video-controls promo-video-controls">
-                        <button class="video-play-toggle" type="button" aria-label="Play video"></button>
-                        <span class="video-time video-time-current">0:00</span>
-                        <div class="video-progress" role="slider" tabindex="0" aria-label="DemoShift-Bench overview video progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="video-progress-fill"></div></div>
-                        <span class="video-time video-time-duration">0:00</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="section demo-section" id="demo-shifts">
             <div class="container is-max-widescreen">
                 <h2 class="section-heading">Demonstration Shifts. <span class="paper-ref">(Section 3.3)</span></h2>
@@ -361,7 +347,7 @@
                     </table>
                 </div>
                 <p class="section-description bench-notes">
-                    <strong>For ICL policies:</strong> Viewpoint shifts hurt when they occlude the target, as do distractors in the robot's scene. Speed and specification instructions are rarely followed. Under cross-modal conflicts, Zero&#8209;WAM follows only the video. <span class="paper-ref">(Section 4.3)</span>
+                    <strong>For VLA/WAM policies:</strong> Viewpoint shifts hurt when they occlude the target, as do distractors in the robot's scene. Speed and specification instructions are rarely followed. Under cross-modal conflicts, Zero&#8209;WAM follows only the video. <span class="paper-ref">(Section 4.3)</span>
                 </p>
                 <p class="section-description">
                     <strong>For agentic policies:</strong> Viewpoint shifts, conflicts, and arm specifications barely hurt agentic policies. Yet they still fail under Speed, Repeat, and No Collision. This robustness is costly. <span class="paper-ref">(Section 4.4)</span>
@@ -404,8 +390,8 @@
                             </p>
                         </div>
                         <figure class="failure-figure">
-                            <a href="./static/images/failure_quantitative_1024.png" target="_blank" rel="noopener">
-                                <img src="./static/images/failure_quantitative_1024.png" width="1024" height="369" alt="Breakdown of labeled failures for Zero-WAM and GPT-6 Astra on pick-and-place tasks under speed, distractor and specification shifts, split into instruction violated, grasp failure, placement failure, only a distractor handled, and distractor touched along with target.">
+                            <a href="./static/images/failure_quantitative_2048.png" target="_blank" rel="noopener">
+                                <img src="./static/images/failure_quantitative_2048.png" width="2048" height="737" alt="Breakdown of labeled failures for Zero-WAM and GPT-6 Astra on pick-and-place tasks under speed, distractor and specification shifts, split into instruction violated, grasp failure, placement failure, only a distractor handled, and distractor touched along with target.">
                             </a>
                             <figcaption class="failure-figcaption">Labeled failure causes for Zero&#8209;WAM and GPT&#8209;6 Astra <span class="paper-ref">(Appendix A, Figure 6)</span></figcaption>
                         </figure>
