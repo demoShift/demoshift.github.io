@@ -567,6 +567,13 @@ button:focus-visible,
   line-height: 1.45;
 }
 
+/* success rule shown under a prompt, set off by a hairline */
+.shift-criterion {
+  margin-top: 0.55rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line);
+}
+
 .shift-prompt-label {
   display: block;
   margin-bottom: 0.15rem;
