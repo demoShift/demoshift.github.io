@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./static/css/bulma.min.css">
     <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="./static/css/index.css?v=20261120-howfail">
+    <link rel="stylesheet" href="./static/css/index.css?v=20261122-paperref">
     <link rel="icon" type="image/svg+xml" href="./static/images/favicon.svg">
     <script defer src="./static/js/index.js?v=20261120-howfail"></script>
 </head>
@@ -49,7 +49,7 @@
 
         <section class="section motivation-section" id="overview">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">Evaluate ICL Policies &amp; Frontier VLMs on real-world human demonstration</h2>
+                <h2 class="section-heading">Evaluate ICL Policies &amp; Frontier VLMs on real-world human demonstration <span class="paper-ref">(Abstract)</span></h2>
                 <div class="motivation-panel">
                     <p>
                         In-context learning (ICL) enables robot policies to perform unseen tasks from a human demonstration video without task-specific training. However, existing evaluations rely on curated videos closely matched to the robot's workspace. We ask whether these policies can follow casual, everyday recordings and adapt to changed execution conditions.
@@ -73,9 +73,9 @@
 
         <section class="section demo-section" id="demo-shifts">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">Demonstration Shifts.</h2>
+                <h2 class="section-heading">Demonstration Shifts. <span class="paper-ref">(Section 3.3)</span></h2>
                 <p class="section-description">
-                    5 controlled shift axes in DemoShift-Bench
+                    5 controlled shift axes in DemoShift-Bench <span class="paper-ref">(Section 3.3, Figure 2)</span>
                 </p>
 
                 <div class="icl-film" data-icl-film aria-label="Demonstration shift examples">
@@ -135,15 +135,15 @@
 
         <section class="section motivation-section findings-section" id="findings">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">Main Findings.</h2>
+                <h2 class="section-heading">Main Findings. <span class="paper-ref">(Section 4)</span></h2>
                 <div class="motivation-panel">
                     <p>
                         Evaluating both ICL policies and frontier agentic vision-language model (VLM) policies on DemoShift-Bench reveals an average success drop of 12&ndash;14 percentage points under shifts and exposes three key limitations.
                     </p>
                     <ul class="contribution-list">
-                        <li>First, earlier video-conditioned vision-language-action (VLA) policies rely mainly on text instructions rather than on human demonstration videos.</li>
-                        <li>Second, current ICL policies that do use the video still fail to reproduce demonstrated actions precisely, resolve object and instance ambiguity, or follow added specifications and cross-modal overrides.</li>
-                        <li>Third, frontier agentic VLM policies handle visual shifts, arm selection, and cross-modal conflicts far more reliably, yet they still fail to repeat tasks, avoid collisions, or adjust execution speed, and they incur high token costs.</li>
+                        <li>First, earlier video-conditioned vision-language-action (VLA) policies rely mainly on text instructions rather than on human demonstration videos. <span class="paper-ref">(Section 4.2)</span></li>
+                        <li>Second, current ICL policies that do use the video still fail to reproduce demonstrated actions precisely, resolve object and instance ambiguity, or follow added specifications and cross-modal overrides. <span class="paper-ref">(Section 4.3)</span></li>
+                        <li>Third, frontier agentic VLM policies handle visual shifts, arm selection, and cross-modal conflicts far more reliably, yet they still fail to repeat tasks, avoid collisions, or adjust execution speed, and they incur high token costs. <span class="paper-ref">(Section 4.4)</span></li>
                     </ul>
                 </div>
             </div>
@@ -151,7 +151,7 @@
 
         <section class="section bench-section" id="benchmark">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">Performance Drop under Different Axes.</h2>
+                <h2 class="section-heading">Performance Drop under Different Axes. <span class="paper-ref">(Section 4.1, Table 4)</span></h2>
                 <div class="bench-toolbar">
                     <div class="result-legend bench-legend" aria-label="Chart legend">
                         <span class="bench-legend-family">ICL policies</span>
@@ -331,21 +331,21 @@
                     </table>
                 </div>
                 <p class="section-description bench-notes">
-                    <strong>For ICL policies:</strong> Viewpoint shifts hurt when they occlude the target, as do distractors in the robot's scene. Speed and specification instructions are rarely followed. Under cross-modal conflicts, Zero&#8209;WAM follows only the video.
+                    <strong>For ICL policies:</strong> Viewpoint shifts hurt when they occlude the target, as do distractors in the robot's scene. Speed and specification instructions are rarely followed. Under cross-modal conflicts, Zero&#8209;WAM follows only the video. <span class="paper-ref">(Section 4.3)</span>
                 </p>
                 <p class="section-description">
-                    <strong>For agentic policies:</strong> Viewpoint shifts, conflicts, and arm specifications barely hurt agentic policies. Yet they still fail under Speed, Repeat, and No Collision. This robustness is costly.
+                    <strong>For agentic policies:</strong> Viewpoint shifts, conflicts, and arm specifications barely hurt agentic policies. Yet they still fail under Speed, Repeat, and No Collision. This robustness is costly. <span class="paper-ref">(Section 4.4)</span>
                 </p>
             </div>
         </section>
 
         <section class="section why-fail-section" id="how-they-fail">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">How They Fail: Policies Follow Neither Demonstrated Details Nor Instructions.</h2>
+                <h2 class="section-heading">How They Fail: Policies Follow Neither Demonstrated Details Nor Instructions. <span class="paper-ref">(Section 4.5)</span></h2>
                 <div class="why-fail-layout">
                     <div class="why-fail-copy">
                         <p class="section-description">
-                            <strong>Policies do not use the affordance the demonstration shows.</strong> Even when a rollout succeeds, it often ignores how the human interacts with the object. In the open-microwave task on the right, the demonstrator grasps the handle and pulls the door; Zero&#8209;WAM instead hooks its gripper over the top edge of the door and drags it open.
+                            <strong>Policies do not use the affordance the demonstration shows.</strong> Even when a rollout succeeds, it often ignores how the human interacts with the object. In the open-microwave task on the right, the demonstrator grasps the handle and pulls the door; Zero&#8209;WAM instead hooks its gripper over the top edge of the door and drags it open. <span class="paper-ref">(Section 4.5, Figure 5)</span>
                         </p>
                     </div>
                     <div class="why-fail-clips">
@@ -367,26 +367,27 @@
 
         <section class="section robotwin-section failure-section" id="failure-cases">
             <div class="container is-max-widescreen">
-                <h2 class="section-heading">Failure Cases Visualization.</h2>
+                <h2 class="section-heading">Failure Cases Visualization. <span class="paper-ref">(Section 4.5, Appendix A)</span></h2>
 
                 <div class="robotwin-subsection">
                     <div class="failure-overview">
                         <div class="failure-copy">
                             <h3 class="robotwin-subheading">How Policies Fail.</h3>
                             <p class="section-description">
-                                <strong>Target confusion and ignored requests cause failures.</strong> With distractors added to the scene (<em>Object ambiguity</em>), the robot grasps the phone instead of the stamp: it knows to pick something up, but not which object the demonstration specifies, consistent with the 6.2&ndash;9.0 percentage-point drop under Object Ambiguity. Told not to touch other objects (<em>Collision</em>), the robot places the cup on the coaster but knocks the can off the table on the way, executing what the demonstration shows and ignoring the added specification.
+                                <strong>Target confusion and ignored requests cause failures.</strong> With distractors added to the scene (<em>Object ambiguity</em>), the robot grasps the phone instead of the stamp: it knows to pick something up, but not which object the demonstration specifies, consistent with the 6.2&ndash;9.0 percentage-point drop under Object Ambiguity. Told not to touch other objects (<em>Collision</em>), the robot places the cup on the coaster but knocks the can off the table on the way, executing what the demonstration shows and ignoring the added specification. <span class="paper-ref">(Section 4.5, Figure 4)</span>
                             </p>
                         </div>
                         <figure class="failure-figure">
                             <a href="./static/images/failure_quantitative_1024.png" target="_blank" rel="noopener">
                                 <img src="./static/images/failure_quantitative_1024.png" width="1024" height="369" alt="Breakdown of labeled failures for Zero-WAM and GPT-6 Astra on pick-and-place tasks under speed, distractor and specification shifts, split into instruction violated, grasp failure, placement failure, only a distractor handled, and distractor touched along with target.">
                             </a>
+                            <figcaption class="failure-figcaption">Labeled failure causes for Zero&#8209;WAM and GPT&#8209;6 Astra <span class="paper-ref">(Appendix A, Figure 6)</span></figcaption>
                         </figure>
                     </div>
 
                     <section class="robotwin-task-group robotwin-task-group--primary failure-group" aria-labelledby="failure-label-cases">
                         <div class="robotwin-group-label">
-                            <h4 id="failure-label-cases">Failure<br>Examples</h4>
+                            <h4 id="failure-label-cases">Failure<br>Examples<br><span class="paper-ref">(Section 4.5, Appendix A)</span></h4>
                         </div>
                         <div class="robotwin-task-grid failure-grid">
                             <figure class="robotwin-task">
